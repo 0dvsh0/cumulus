@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+package-lock.json.bak
+
+# Test output & temporary test data
+data-test/
+data-test-hard/
+coverage/
+
+# Large raw video recordings (>100MB exceeds GitHub push limits)
+video_assets/*.webm
+video_assets/page@*.webm
+test_merge.mp4
+demo.webm
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
