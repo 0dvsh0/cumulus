@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cumulus — Documentation</title>
+  <meta name="description" content="Cumulus documentation: REST API, MCP tools, scoring model, the 33-check catalogue, safety model and self-hosting.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Cumulus docs">
+  <meta property="og:description" content="REST + MCP + scoring model + the full check catalogue.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Cpath d='M7 24h18a4 4 0 0 0 .3-8 6 6 0 0 0-11.2-2A4.6 4.6 0 0 0 7.2 17.5 3.3 3.3 0 0 0 7 24Z' fill='%235f6068' stroke='%23a4a6b6' stroke-width='1.4'/%3E%3Ccircle cx='24' cy='7' r='1.6' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body data-page="docs">
+  <div class="sky" aria-hidden="true"><canvas id="sky"></canvas></div>
+
+  <div class="page">
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="index.html" aria-label="Cumulus home"><span class="brand-mark"></span>Cumulus</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="demo.html">Demo Video</a>
+          <a href="docs.html" aria-current="page">Docs</a>
+          <a href="data/openapi.json" target="_blank" rel="noopener">OpenAPI</a>
+          <a class="btn small" href="index.html">Run an audit <span aria-hidden="true">→</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap docs-layout">
+      <aside class="toc" aria-label="On this page">
+        <b>Getting started</b>
+        <a href="#overview">Overview</a>
+        <a href="#quickstart">Quickstart</a>
+        <b>Interfaces</b>
+        <a href="#rest">REST API</a>
+        <a href="#mcp">MCP</a>
+        <b>Method</b>
+        <a href="#statuses">Status semantics</a>
+        <a href="#scoring">Scoring model</a>
+        <a href="#checks">The 33 checks</a>
+        <b>Trust</b>
+        <a href="#safety">Safety model</a>
+        <a href="#selfhost">Self-hosting</a>
+      </aside>
+
+      <article class="prose">
+        <h1 id="overview">Documentation</h1>
+        <p>Cumulus audits how easily AI agents can <b>discover, access, understand and buy from</b> a website. It fetches raw HTML, renders the page in headless Chromium, then walks the links the way a task-driven agent would — find pricing, extract plans, locate signup and docs, reach checkout — and produces a score out of 100 with evidence for every check.</p>
+        <p>The dashboard UI and the programmatic interfaces (REST, MCP) consume <b>the same reports</b>: one engine, one data model.</p>
+
+        <div class="callout"><b>What an audit does:</b> reads robots.txt, fetches public pages (≤14), renders the homepage and pricing (when found) in Chromium, runs 5 navigation-only agent tasks, then scores 33 checks. It never fills or submits forms, never creates accounts, never pays, and respects robots.txt — checks it cannot run because of robots or challenges are reported as <span class="mono">Blocked</span>, never as failure.</div>
+
+        <h2 id="quickstart">Quickstart</h2>
+        <p>Start an audit with one POST. The response is an audit id; progress streams over SSE; the finished report lands on the record endpoint.</p>
+        <div class="code"><header><span>start + watch + report</span><button class="copy" type="button">copy</button></header><pre>curl -s -X POST http://localhost:3000/api/v1/audits \
+  -H 'content-type: application/json' \
+  -d '{"url":"https://example.com"}'
+# → {"id":"a5f3…","status":"running","pct":2,…}
+
+curl -N http://localhost:3000/api/v1/audits/a5f3…/events
+# event: progress {"stage":"Reading robots.txt","pct":14,…}
+# event: done     {"status":"complete","report":{…}}
+
+curl -s http://localhost:3000/api/v1/audits/a5f3… | jq .report.score</pre></div>
+        <p>A finished audit is available at <code>/report/&lt;id&gt;</code>. The zip your team ships is <code>GET /api/v1/audits/&lt;id&gt;/fix-kit</code>.</p>
+
+        <h2 id="rest">REST API</h2>
+        <p>Base path <code>/api/v1</code> — legacy aliases without the <code>v1</code> segment (<code>POST /api/audits</code>) behave identically. When <code>CUMULUS_API_KEY</code> is set, all API and MCP calls require <code>Authorization: Bearer &lt;key&gt;</code>.</p>
+        <table>
+          <thead><tr><th>Method &amp; path</th><th>Purpose</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><code>POST /audits</code></td><td>Start an audit</td><td>Body <code>{"url":"example.com"}</code>. Returns 202 + id. Refused targets (IP literals, private ranges, internal hostnames, credentials, non-standard ports) return 400 with a reason. 429 = origin cooling down (20 s), 503 = capacity (3 concurrent).</td></tr>
+            <tr><td><code>GET /audits</code></td><td>List recent audits</td><td><code>?limit=15</code>, <code>?host=example.com</code></td></tr>
+            <tr><td><code>GET /audits/:id</code></td><td>Audit record</td><td>Full report once complete plus <code>history</code> (previous audits of the same host). <code>?logs=1</code> includes progress log lines.</td></tr>
+            <tr><td><code>GET /audits/:id/events</code></td><td>SSE progress</td><td><code>event: progress</code> → <code>event: done</code>. Heartbeat every 15 s.</td></tr>
+            <tr><td><code>GET /audits/:id/findings</code></td><td>Findings</td><td>Fail / partial checks with evidence + remediation detail. <code>?detail=1</code> embeds problem/impact/fix/acceptance/verification.</td></tr>
+            <tr><td><code>GET /audits/:id/fix-kit</code></td><td>Fix kit zip</td><td>Per-finding Markdown + README.md (fix order) + report.json.</td></tr>
+            <tr><td><code>DELETE /audits/:id</code></td><td>Cancel</td><td>Graceful: finishes the current step, marks the audit cancelled.</td></tr>
+            <tr><td><code>GET /history?host=…</code></td><td>Per-host history</td><td>Finished audits with scores — for deltas across runs.</td></tr>
+            <tr><td><code>GET /meta</code></td><td>Registry</td><td>All 33 checks, categories, statuses, weights, limits — this page renders from it.</td></tr>
+            <tr><td><code>GET /openapi.json</code></td><td>Machine-readable spec</td><td>OpenAPI 3.1.</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="mcp">MCP (Model Context Protocol)</h2>
+        <p>An MCP server is mounted at <code>POST /mcp</code> using JSON-RPC 2.0 (streamable-HTTP style, stateless). Tools:</p>
+        <table>
+          <thead><tr><th>Tool</th><th>Input</th><th>Returns</th></tr></thead>
+          <tbody>
+            <tr><td><code>start_audit</code></td><td><code>{url}</code></td><td>Audit id to poll</td></tr>
+            <tr><td><code>get_audit_status</code></td><td><code>{id}</code></td><td>Stage, percent, readiness</td></tr>
+            <tr><td><code>get_report</code></td><td><code>{id, terse?:bool}</code></td><td>Score, categories, coverage, per-check evidence, journey, stats</td></tr>
+            <tr><td><code>list_findings</code></td><td><code>{id, severity?:word}</code></td><td>Failures/partials with evidence; blocked/inconclusive items under <code>openItems</code></td></tr>
+            <tr><td><code>get_fix_kit</code></td><td><code>{id}</code></td><td>Zip download URL + contents description</td></tr>
+            <tr><td><code>check_catalogue</code></td><td><code>{}</code></td><td>The 33 checks + scoring model</td></tr>
+          </tbody>
+        </table>
+        <p>Desktop agents speak stdio; use the bundled bridge (<code>scripts/mcp-stdio.mjs</code>, line-delimited JSON-RPC over stdin/stdout):</p>
+        <div class="code"><header><span>claude-style client config</span><button class="copy" type="button">copy</button></header><pre>{
+  "mcpServers": {
+    "cumulus": {
+      "command": "node",
+      "args": ["&lt;path&gt;/scripts/mcp-stdio.mjs"],
+      "env": {
+        "CUMULUS_MCP_URL": "http://localhost:3000/mcp",
+        "CUMULUS_API_KEY": "…"
+      }
+    }
+  }
+}</pre></div>
+
+        <h2 id="statuses">Status semantics</h2>
+        <p>Seven outcomes. Only three move the score. <b>An untested check is never a failure.</b></p>
+        <table>
+          <thead><tr><th>Status</th><th>Credit</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill st-pass">Pass</span></td><td>1.0</td><td>Verified working with evidence.</td></tr>
+            <tr><td><span class="pill st-warn">Partial</span></td><td>0.5</td><td>Works with caveats (thresholds partially met).</td></tr>
+            <tr><td><span class="pill st-fail">Fail</span></td><td>0</td><td>Verified broken.</td></tr>
+            <tr><td><span class="pill st-blocked">Blocked</span></td><td>—</td><td>Couldn't test: robots.txt disallow, challenge page, or a prerequisite failed (e.g. pricing never found).</td></tr>
+            <tr><td><span class="pill st-inconclusive">Inconclusive</span></td><td>—</td><td>Tested, but the evidence didn't settle it (e.g. 429 rate limit).</td></tr>
+            <tr><td><span class="pill st-error">Error</span></td><td>—</td><td>The audit itself hit a network/timeout failure for this check.</td></tr>
+            <tr><td><span class="pill st-na">N/A</span></td><td>—</td><td>Genuinely doesn't apply (e.g. no pricing surface on a non-commercial site) — excluded from coverage.</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="scoring">Scoring model</h2>
+        <div class="formula" style="margin-top:20px"><b>weight</b>     critical 5 · high 3 · medium 2 · low 1
+<b>category</b>   Σ(weight × credit) ÷ Σ(weight of evaluated checks)
+<b>overall</b>    mean of category scores with ≥1 evaluated check
+<b>coverage</b>   tested weight ÷ applicable weight <span class="dim">← blocked/inconclusive/error are applicable, n/a is not</span></div>
+        <p style="margin-top:18px">Coverage is always shown beside scores: a 90 made of one lucky check is not the same as a 90 made of thirty. Categories with nothing evaluated report <i>n/a</i> and don't drag the mean.</p>
+
+        <h2 id="checks">The 33 checks</h2>
+        <p id="checks-lead">Registered live from <code>GET /api/v1/meta</code> — this page can never drift from the engine.</p>
+        <div class="cat-tabs" id="cat-tabs" role="group" aria-label="Filter checks by category"></div>
+        <div class="table-scroll">
+          <table class="checks-table">
+            <thead><tr><th>ID</th><th>Check</th><th>Severity</th><th>Category</th><th>Why it matters</th></tr></thead>
+            <tbody id="checks-tbody"></tbody>
+          </table>
+        </div>
+
+        <h2 id="safety">Safety model</h2>
+        <p>Every submitted URL is treated as untrusted. Cumulus reads; it never writes.</p>
+        <ul>
+          <li><b>SSRF guards:</b> IP literals, private/loopback/link-local/CGNAT and reserved ranges, internal hostnames (<span class="mono">localhost</span>, <span class="mono">*.local</span>, <span class="mono">*.internal</span>…), non-standard ports, URLs with embedded credentials — all refused before any request is made. DNS is resolved once, validated, and the connection is <i>pinned</i> to the validated address, so a rebinding race can't bounce a fetch inward. Every redirect hop is re-validated.</li>
+          <li><b>Browser containment:</b> headless Chromium runs with a default-deny DNS resolver (<span class="mono">--host-resolver-rules</span>) plus a per-request route guard that re-checks every URL the page tries to load.</li>
+          <li><b>robots.txt:</b> parsed and honoured for every fetch whose purpose is to simulate agents. Disallowed paths produce <span class="mono">Blocked</span> results with the reason — never silent failures.</li>
+          <li><b>Limits:</b> total wall-clock budget (<span class="mono" id="limit-audit">150 s</span>), ≤ <span class="mono">14</span> crawl pages, response size caps (3 MB raw / 6 MB decoded), per-request timeouts, politeness delays, ≤ <span class="mono">3</span> concurrent audits, 20 s per-origin cooldown.</li>
+          <li><b>Never writes:</b> no form submissions, no account creation, no payments — checkout "success" is defined as <i>a payment interface loaded</i>, then the auditor stops.</li>
+        </ul>
+
+        <h2 id="selfhost">Self-hosting</h2>
+        <div class="code"><header><span>term</span><button class="copy" type="button">copy</button></header><pre>npm install          # also downloads Chromium (playwright)
+npm start            # http://localhost:3000
+
+# configuration (all optional)
+PORT=3000
+HOST=0.0.0.0                 # bind address
+CUMULUS_API_KEY=…            # require bearer auth on /api + /mcp
+CUMULUS_DATA_DIR=data        # audit history persistence (JSON lines)
+CUMULUS_ALLOW_PRIVATE=1      # TEST-ONLY: allow local targets for development</pre></div>
+        <p>Node ≥ 20. Chromium ships via Playwright. Reports persist under <code>CUMULUS_DATA_DIR/audits.jsonl</code>; the in-memory index keeps recent records hot.</p>
+      </article>
+    </div>
+
+    <!-- <footer class="footer">
+      <div class="wrap">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark"></span>Cumulus</a>
+          <p class="fine">Open source under MIT. Methodology → <a href="/#scoring">landing</a>.</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="/docs#rest">REST</a>
+          <a href="/docs#mcp">MCP</a>
+          <a href="/docs#checks">Checks</a>
+        </nav>
+      </div>
+    </footer> -->
+  </div>
+
+  <script type="module" src="js/docs.js"></script>
+</body>
+</html>
