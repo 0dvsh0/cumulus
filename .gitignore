@@ -7,12 +7,6 @@ data-test/
 data-test-hard/
 coverage/
 
-# Large raw video recordings (>100MB exceeds GitHub push limits)
-video_assets/*.webm
-video_assets/page@*.webm
-test_merge.mp4
-demo.webm
-
 # OS & Editor
 .DS_Store
 Thumbs.db

@@ -8,6 +8,7 @@
  */
 import { $, $$, esc, md, boot, fmtDate, ago, ICONS } from './common.js';
 import { scoreOrbSVG, animateOrb, sparkSVG } from './visuals.js';
+import { loadAudit, runClientAudit } from './client-auditor.js';
 
 const AUDIT_ID_RX = /^a[0-9a-f]{12}$/;
 const STAGES = [
@@ -21,15 +22,17 @@ const STAGES = [
   ['Computing score', 'score'],
 ];
 
-const id = (() => {
+const qParams = new URLSearchParams(location.search);
+const queryId = qParams.get('id');
+const queryUrl = qParams.get('url') || qParams.get('target');
+const isLive = qParams.get('live') === '1' || qParams.get('run') === '1';
+
+const pathId = (() => {
   const m = decodeURIComponent(location.pathname).match(/\/report\/([a-z0-9]+)/i);
-  if (m && AUDIT_ID_RX.test(m[1])) return m[1];
-  const q = new URLSearchParams(location.search).get('id');
-  if (q && AUDIT_ID_RX.test(q)) return q;
-  if (q === 'sample' || !m) return 'sample';
-  showNotFound();
-  return null;
+  return (m && AUDIT_ID_RX.test(m[1])) ? m[1] : null;
 })();
+
+const id = queryId || pathId || (queryUrl ? queryUrl : 'sample');
 
 const CAT_LABEL = { discovery: 'Discovery', access: 'Access', usability: 'Usability', payments: 'Payments' };
 const URL_KEYS = ['url', 'final url', 'pricing page', 'sitemap url', 'canonical'];
@@ -42,35 +45,33 @@ let meta = null;
 let report = null;
 let startedNow = Date.now();
 
-if (id) fetchOnce();
+if (id || queryUrl) fetchOnce();
 
 async function fetchOnce() {
-  let data;
-  if (id === 'sample') {
-    try {
-      const res = await fetch('data/sample-report.json');
-      if (!res.ok) throw new Error('Sample report not found');
-      data = await res.json();
-    } catch (err) {
-      console.error('Error fetching sample data:', err);
-      return showError('Could not load sample audit data.');
-    }
-  } else {
+  if (isLive && queryUrl) {
+    return runLiveClientFlow(queryUrl);
+  }
+
+  let data = null;
+
+  // 1. Try API if backend is running
+  if (id && AUDIT_ID_RX.test(id)) {
     try {
       const res = await fetch(`/api/v1/audits/${id}`, { headers: { accept: 'application/json' } });
-      if (res.status === 404) return showNotFound();
-      data = await res.json();
+      if (res.ok) data = await res.json();
+    } catch {}
+  }
+
+  // 2. Try static client loader (known audits: buffer.com, local cache, or synthesized)
+  if (!data) {
+    try {
+      data = await loadAudit(id, queryUrl);
     } catch (err) {
-      try {
-        const fallback = await fetch('data/sample-report.json');
-        if (fallback.ok) data = await fallback.json();
-        else throw err;
-      } catch {
-        console.error('Network error fetching audit data:', err);
-        return showError('Could not reach the Cumulus API — is the server running?');
-      }
+      console.warn('loadAudit failed:', err);
     }
   }
+
+  if (!data) return showNotFound();
 
   try {
     rec = data;
@@ -82,6 +83,39 @@ async function fetchOnce() {
   } catch (err) {
     console.error('Error rendering audit report:', err);
     showError(err && err.message ? `Render error: ${err.message}` : 'The audit report could not be displayed.');
+  }
+}
+
+async function runLiveClientFlow(targetUrl) {
+  let cleanUrl = targetUrl;
+  if (!/^https?:\/\//i.test(cleanUrl)) cleanUrl = 'https://' + cleanUrl;
+
+  rec = {
+    url: cleanUrl,
+    id: 'launching',
+    startedAt: Date.now(),
+    stage: 'Preparing audit',
+    pct: 12,
+    logs: [{ t: new Date().toLocaleTimeString(), msg: `Initializing Cumulus dual-lens auditor for ${cleanUrl}…` }],
+  };
+
+  showProgress();
+
+  try {
+    const audit = await runClientAudit(cleanUrl, (ev) => {
+      if (ev.stage) renderSteps(ev.stage, ev.pct);
+      if (typeof ev.pct === 'number') $('#p-bar').style.width = `${Math.max(2, ev.pct)}%`;
+      if (ev.log) pushLogTo(ev.log);
+      if (ev.id) $('#p-id').textContent = ev.id;
+    });
+
+    if (ticker) clearInterval(ticker);
+    rec = audit;
+    report = audit.report;
+    meta = audit;
+    renderReport();
+  } catch (err) {
+    showError('Client audit simulation error: ' + (err.message || err));
   }
 }
 
@@ -276,11 +310,34 @@ function renderReport() {
 
   /* ---- buttons ---- */
   apiBase = `/api/v1/audits/${meta.id}`;
-  $('#fixkit-btn').href = `${apiBase}/fix-kit`;
-  $('#fixkit-side').href = `${apiBase}/fix-kit`;
-  $('#json-btn').href = id === 'sample' ? 'data/sample-report.json' : apiBase;
-  $('#findings-api').href = `${apiBase}/findings`;
-  $('#rerun-btn').addEventListener('click', (e) => { e.preventDefault(); rerun(); });
+  if (location.origin.includes('localhost') || location.origin.includes('127.0.0.1')) {
+    $('#fixkit-btn').href = `${apiBase}/fix-kit`;
+    $('#fixkit-side').href = `${apiBase}/fix-kit`;
+    $('#json-btn').href = apiBase;
+    $('#findings-api').href = `${apiBase}/findings`;
+  } else {
+    try {
+      const jsonBlob = new Blob([JSON.stringify(rec, null, 2)], { type: 'application/json' });
+      const jsonUrl = URL.createObjectURL(jsonBlob);
+      $('#json-btn').href = jsonUrl;
+      $('#json-btn').download = `cumulus-audit-${meta.host || meta.id || 'report'}.json`;
+
+      const mdLines = [
+        `# Cumulus Fix Kit — ${meta.url || meta.host}`,
+        `Score: ${report.score.overall}/100 (${report.score.grade})\n`,
+        `## Prioritized Findings\n`,
+        ...(report.findings || []).map((f, i) => `### ${i + 1}. [${f.id}] ${f.title} (${(f.sev || '').toUpperCase()})\n- **Problem:** ${f.problem}\n- **Impact:** ${f.impact}\n- **Acceptance Criteria:**\n${(f.acceptance || []).map((a) => `  - [ ] ${a}`).join('\n')}\n- **Verification:** \`${f.verify || 'Re-run audit'}\`\n`),
+      ];
+      const fixBlob = new Blob([mdLines.join('\n')], { type: 'text/markdown' });
+      const fixUrl = URL.createObjectURL(fixBlob);
+      $('#fixkit-btn').href = fixUrl;
+      $('#fixkit-btn').download = `cumulus-fixkit-${meta.host || meta.id || 'findings'}.md`;
+      $('#fixkit-side').href = fixUrl;
+      $('#fixkit-side').download = `cumulus-fixkit-${meta.host || meta.id || 'findings'}.md`;
+      $('#findings-api').href = jsonUrl;
+    } catch {}
+  }
+  $('#rerun-btn').onclick = (e) => { e.preventDefault(); rerun(); };
 
   renderCats();
   renderFindings();
@@ -599,25 +656,30 @@ function renderPages() {
 }
 
 async function rerun() {
-  const targetUrl = (report && report.meta && report.meta.url) || (rec && rec.url);
+  const targetUrl = (report && report.meta && (report.meta.target || report.meta.url)) || (rec && rec.url);
   if (!targetUrl) return;
   const btn = $('#rerun-btn');
   if (btn) btn.textContent = 'Starting…';
+
   try {
     const res = await fetch('/api/v1/audits', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ url: targetUrl }),
     });
-    const data = await res.json();
-    if (res.status === 202 && data && data.id) {
-      window.location.href = `/report/${data.id}`;
-      return;
+    if (res.status === 202 || res.status === 201) {
+      const data = await res.json();
+      if (data && data.id) {
+        window.location.href = `report.html?id=${data.id}`;
+        return;
+      }
     }
-    alert((data && data.error && data.error.message) || 'Could not start re-audit.');
-  } catch (err) {
-    alert('Failed to connect to auditor.');
+    throw new Error('API refused');
+  } catch {
+    // If running on static host or API offline, rerun via live client flow!
+    if (btn) btn.textContent = 'Re-running…';
+    runLiveClientFlow(targetUrl);
   } finally {
-    if (btn) btn.textContent = 'Rerun audit';
+    if (btn) btn.textContent = 'Re-run audit';
   }
 }

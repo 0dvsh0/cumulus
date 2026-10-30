@@ -22,7 +22,6 @@
       <div class="wrap">
         <a class="brand" href="index.html" aria-label="Cumulus home"><span class="brand-mark"></span>Cumulus</a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="demo.html">Demo Video</a>
           <a href="docs.html">Docs</a>
           <a href="index.html#scoring">Scoring</a>
           <a class="btn small" href="index.html" id="nav-rerun">Run an audit <span aria-hidden="true">→</span></a>
@@ -61,7 +60,7 @@
             <p id="error-msg" style="color:var(--text-2)"></p>
             <p class="dim" style="font-size:13px;margin-top:14px">Common causes: the site blocks datacentre traffic, DNS does not resolve, or the robots.txt/HTTP behaviour made testing impossible. Everything the auditor observed is in the log above (or in the record endpoint).</p>
             <div style="display:flex;gap:10px;margin-top:20px">
-              <a class="btn small" href="/" id="error-home">Try another site</a>
+              <a class="btn small" href="index.html" id="error-home">Try another site</a>
               <a class="btn small ghost" id="error-retry" href="#">Retry this audit</a>
             </div>
           </div>
@@ -73,7 +72,7 @@
     <section class="report-top" id="report-top" hidden>
       <div class="wrap">
         <div class="crumbs">
-          <a href="/">Cumulus</a><span aria-hidden="true">/</span>
+          <a href="index.html">Cumulus</a><span aria-hidden="true">/</span>
           <span class="mono" id="crumbs-host"></span>
           <span aria-hidden="true">/</span>
           <span class="dim mono" id="crumbs-id"></span>
@@ -90,7 +89,7 @@
             <div class="actions">
               <a class="btn" id="fixkit-btn" href="#" download>Fix kit <span aria-hidden="true">↓</span></a>
               <a class="btn ghost" id="json-btn" href="#" target="_blank" rel="noopener">report JSON</a>
-              <a class="btn ghost" id="rerun-btn" href="index.html">Re-run</a>
+              <a class="btn ghost" id="rerun-btn" href="#">Re-run</a>
               <a class="btn ghost" href="docs.html">Methodology</a>
             </div>
             <div class="coverage">

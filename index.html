@@ -32,12 +32,11 @@
       <div class="wrap">
         <a class="brand" href="#top" aria-label="Cumulus home"><span class="brand-mark"></span>Cumulus <span class="ver">v1.0 · MIT</span></a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="demo.html">Demo Video</a>
           <a href="#how">How it works</a>
           <a href="docs.html">Docs</a>
           <a href="#scoring">Scoring</a>
           <a href="#checks">Checks</a>
-          <a class="btn small" href="#top">Run an audit</a>
+          <!-- <a class="btn small" href="#top">Run an audit</a> -->
         </nav>
       </div>
     </header>
@@ -140,7 +139,6 @@ home → <b>"Pricing"</b> → /pricing
               <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
               <span class="mono">cumulus / report / acme-cloud.example</span>
               <span class="sample-tag">Illustrative example · not a real site</span>
-              <a href="report.html?id=sample" class="btn small ghost" style="margin-left:auto;font-size:12px;padding:4px 12px">Open report dashboard &rarr;</a>
             </div>
             <div class="sample-body">
               <div class="score-hero">
@@ -836,7 +834,7 @@ home → <b>"Pricing"</b> → /pricing
           if (data && data.id) {
             started = true;
             msg.innerHTML = `Audit <code>${esc(data.id)}</code> started — opening the live report…`;
-            location.href = `/report/${data.id}`;
+            location.href = `report.html?id=${data.id}`;
             return;
           }
         } else if (res.status === 429) {
@@ -848,13 +846,14 @@ home → <b>"Pricing"</b> → /pricing
           msg.className = 'form-msg err';
           msg.textContent = err.message || 'All audit slots are busy right now — retry in a few seconds.';
         } else {
-          const err = (await res.json().catch(() => ({}))).error || {};
-          msg.className = 'form-msg err';
-          msg.textContent = err.message || 'The server refused that URL.';
+          throw new Error('Static host fallback');
         }
       } catch {
-        msg.className = 'form-msg err';
-        msg.innerHTML = 'Static preview mode — live audits require the Node.js server. <a href="report.html?id=sample" style="color:var(--brand);text-decoration:underline;margin-left:6px">View Sample Audit Report &rarr;</a>';
+        started = true;
+        msg.className = 'form-msg';
+        msg.innerHTML = `Audit starting for <code>${esc(new URL(r.url).hostname)}</code> — opening live audit…`;
+        location.href = `report.html?url=${encodeURIComponent(r.url)}&live=1`;
+        return;
       }
       if (!started && submitBtn) submitBtn.disabled = false;
     });

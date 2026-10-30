@@ -10,7 +10,6 @@
 
 ### 🌐 Live Links
 - **Online Demonstration (GitHub Pages):** [https://0dvsh0.github.io/cumulus/](https://0dvsh0.github.io/cumulus/)
-- **Product Walkthrough Demo Video:** [https://0dvsh0.github.io/cumulus/demo.html](https://0dvsh0.github.io/cumulus/demo.html)
 - **Interactive Check Registry & Documentation:** [https://0dvsh0.github.io/cumulus/docs.html](https://0dvsh0.github.io/cumulus/docs.html)
 - **Interactive Sample Report:** [https://0dvsh0.github.io/cumulus/report.html?id=sample](https://0dvsh0.github.io/cumulus/report.html?id=sample)
 
