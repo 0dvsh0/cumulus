@@ -1,0 +1,1010 @@
+{
+  "id": "a0b3f18c75423",
+  "url": "https://wemakedevs.com/",
+  "origin": "https://wemakedevs.com",
+  "host": "wemakedevs.com",
+  "createdAt": 1793360122077,
+  "startedAt": 1793360122077,
+  "finishedAt": 1793360125455,
+  "status": "complete",
+  "stage": "Computing score",
+  "stageId": "score",
+  "pct": 100,
+  "report": {
+    "meta": {
+      "url": "https://wemakedevs.com/",
+      "origin": "https://wemakedevs.com",
+      "host": "wemakedevs.com",
+      "startedAt": 1793360122077,
+      "finishedAt": 1793360125455,
+      "durationMs": 3378,
+      "auditor": {
+        "name": "Cumulus",
+        "version": "1.0.0",
+        "license": "MIT",
+        "ua": "CumulusBot/1.0 (website AI-readiness audit; respects robots.txt)"
+      }
+    },
+    "status": "complete",
+    "score": {
+      "overall": 0,
+      "grade": "Overcast"
+    },
+    "coverage": {
+      "pct": 4,
+      "testedWeight": 3,
+      "applicableWeight": 71,
+      "totalWeight": 88,
+      "counts": {
+        "pass": 0,
+        "partial": 0,
+        "fail": 1,
+        "open": 25,
+        "n/a": 7
+      },
+      "byCategory": {
+        "discovery": 14,
+        "access": 0,
+        "usability": 0,
+        "payments": 0
+      }
+    },
+    "categories": [
+      {
+        "id": "discovery",
+        "name": "Discovery",
+        "q": "Can agents find your important pages, docs, products and pricing?",
+        "score": 0,
+        "counts": {
+          "pass": 0,
+          "partial": 0,
+          "fail": 1,
+          "blocked": 5,
+          "inconclusive": 1,
+          "error": 2,
+          "n/a": 1
+        },
+        "evaluatedWeight": 3,
+        "openWeight": 18,
+        "checks": [
+          {
+            "id": "D1",
+            "sev": "medium",
+            "status": "error",
+            "evidence": [
+              [
+                "fetch",
+                "robots.txt: error: Connection to host failed."
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D2",
+            "sev": "critical",
+            "status": "inconclusive",
+            "evidence": [
+              [
+                "robots.txt",
+                "could not be fetched (see D1)"
+              ],
+              [
+                "default",
+                "agents default to allowing the site when robots.txt is missing, but network failures leave the policy unknown"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D3",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "checked locations",
+                "Sitemap: directives from robots.txt, then /sitemap.xml, /sitemap_index.xml, /sitemap-index.xml, /wp-sitemap.xml"
+              ],
+              [
+                "result",
+                "no parseable sitemap found"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D4",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no usable sitemap (see D3)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D5",
+            "sev": "low",
+            "status": "error",
+            "evidence": [
+              [
+                "fetch",
+                "error: Connection to host failed."
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D6",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D7",
+            "sev": "low",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D8",
+            "sev": "medium",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D9",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D10",
+            "sev": "low",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "access",
+        "name": "Access",
+        "q": "Can agents actually retrieve the information?",
+        "score": null,
+        "counts": {
+          "pass": 0,
+          "partial": 0,
+          "fail": 0,
+          "blocked": 4,
+          "inconclusive": 1,
+          "error": 1,
+          "n/a": 2
+        },
+        "evaluatedWeight": 0,
+        "openWeight": 20,
+        "checks": [
+          {
+            "id": "A1",
+            "sev": "critical",
+            "status": "error",
+            "evidence": [
+              [
+                "fetch",
+                "homepage fetch did not run"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A2",
+            "sev": "critical",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "rendered DOM unavailable (browser phase skipped or blocked)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A3",
+            "sev": "critical",
+            "status": "inconclusive",
+            "evidence": [
+              [
+                "agent fetch",
+                "error: Connection to host failed."
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A4",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "no page directives scanned (raw pages unavailable)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A5",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "homepage not fetched"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A6",
+            "sev": "low",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A7",
+            "sev": "low",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A8",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no key pages discovered to verify (see D9 / browser tasks)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "usability",
+        "name": "Usability",
+        "q": "Can agents understand pages and navigate key workflows?",
+        "score": null,
+        "counts": {
+          "pass": 0,
+          "partial": 0,
+          "fail": 0,
+          "blocked": 8,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 1
+        },
+        "evaluatedWeight": 0,
+        "openWeight": 17,
+        "checks": [
+          {
+            "id": "U1",
+            "sev": "medium",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U2",
+            "sev": "medium",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "DOM landmarks unavailable (no HTML parsed, no render)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U3",
+            "sev": "low",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "image scan unavailable"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U4",
+            "sev": "medium",
+            "status": "blocked",
+            "evidence": [
+              [
+                "anchors",
+                "0 on the tested page"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U5",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "buttons",
+                "none found on the tested page"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U6",
+            "sev": "medium",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage HTML not parsed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U7",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "navigation scan unavailable"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U8",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U9",
+            "sev": "medium",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "payments",
+        "name": "Payments",
+        "q": "Can agents find pricing, understand plans and reach checkout?",
+        "score": null,
+        "counts": {
+          "pass": 0,
+          "partial": 0,
+          "fail": 0,
+          "blocked": 3,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 3
+        },
+        "evaluatedWeight": 0,
+        "openWeight": 13,
+        "checks": [
+          {
+            "id": "P1",
+            "sev": "critical",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P2",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P3",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P4",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P5",
+            "sev": "critical",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P6",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "D3",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "high",
+        "status": "fail",
+        "title": "XML sitemap is discoverable",
+        "summary": "checked locations: Sitemap: directives from robots.txt, then /sitemap.xml, /sitemap_index.xml, /sitemap-index — result: no parseable sitemap found",
+        "evidence": [
+          [
+            "checked locations",
+            "Sitemap: directives from robots.txt, then /sitemap.xml, /sitemap_index.xml, /sitemap-index.xml, /wp-sitemap.xml"
+          ],
+          [
+            "result",
+            "no parseable sitemap found"
+          ]
+        ],
+        "problem": "No XML sitemap was found — neither via the `Sitemap:` directive in robots.txt nor at the standard locations (/sitemap.xml, /sitemap_index.xml, /sitemap-index.xml, /wp-sitemap.xml).",
+        "impact": "Agents that map a site from its sitemap see nothing: pages that are not prominently linked do not exist for them. Human visitors find those pages through on-page flows; agents often never do.",
+        "fix": [
+          "Generate an XML sitemap covering your public pages (most frameworks/plugins can emit one).",
+          "Reference it from robots.txt with an absolute URL.",
+          "Keep it under ~50,000 URLs / 50 MB per file and use sitemap indexes for larger sites."
+        ],
+        "acceptance": [
+          "A `Sitemap:` line in robots.txt (or /sitemap.xml) serves valid XML with a `<urlset>`.",
+          "Re-audit reports D3 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/sitemap.xml | head -5",
+        "weight": 3
+      }
+    ],
+    "open": [
+      {
+        "id": "D1",
+        "cat": "discovery",
+        "sev": "medium",
+        "status": "error",
+        "title": "robots.txt is published and readable",
+        "detail": "robots.txt: error: Connection to host failed."
+      },
+      {
+        "id": "D2",
+        "cat": "discovery",
+        "sev": "critical",
+        "status": "inconclusive",
+        "title": "AI retrieval agents are allowed",
+        "detail": "no evidence recorded"
+      },
+      {
+        "id": "D5",
+        "cat": "discovery",
+        "sev": "low",
+        "status": "error",
+        "title": "llms.txt is published",
+        "detail": "error: Connection to host failed."
+      },
+      {
+        "id": "D6",
+        "cat": "discovery",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Title and meta description in HTML",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "D7",
+        "cat": "discovery",
+        "sev": "low",
+        "status": "blocked",
+        "title": "Canonical URL is declared",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "D8",
+        "cat": "discovery",
+        "sev": "medium",
+        "status": "blocked",
+        "title": "Valid JSON-LD structured data",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "D9",
+        "cat": "discovery",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Navigation exposes key destinations",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "D10",
+        "cat": "discovery",
+        "sev": "low",
+        "status": "blocked",
+        "title": "Open Graph metadata",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "A1",
+        "cat": "access",
+        "sev": "critical",
+        "status": "error",
+        "title": "Homepage reachable over HTTPS",
+        "detail": "homepage fetch did not run"
+      },
+      {
+        "id": "A2",
+        "cat": "access",
+        "sev": "critical",
+        "status": "blocked",
+        "title": "Core content is in the initial HTML",
+        "detail": "rendered DOM unavailable (browser phase skipped or blocked)"
+      },
+      {
+        "id": "A3",
+        "cat": "access",
+        "sev": "critical",
+        "status": "inconclusive",
+        "title": "No bot challenge on public pages",
+        "detail": "error: Connection to host failed."
+      },
+      {
+        "id": "A4",
+        "cat": "access",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Pages are not marked noindex",
+        "detail": "no page directives scanned (raw pages unavailable)"
+      },
+      {
+        "id": "A6",
+        "cat": "access",
+        "sev": "low",
+        "status": "blocked",
+        "title": "Document language is declared",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "A7",
+        "cat": "access",
+        "sev": "low",
+        "status": "blocked",
+        "title": "Machine-readable alternate advertised",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "U1",
+        "cat": "usability",
+        "sev": "medium",
+        "status": "blocked",
+        "title": "Heading structure is clear",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "U2",
+        "cat": "usability",
+        "sev": "medium",
+        "status": "blocked",
+        "title": "Semantic landmarks are used",
+        "detail": "DOM landmarks unavailable (no HTML parsed, no render)"
+      },
+      {
+        "id": "U3",
+        "cat": "usability",
+        "sev": "low",
+        "status": "blocked",
+        "title": "Images have alt text",
+        "detail": "image scan unavailable"
+      },
+      {
+        "id": "U4",
+        "cat": "usability",
+        "sev": "medium",
+        "status": "blocked",
+        "title": "Links have descriptive names",
+        "detail": "no evidence recorded"
+      },
+      {
+        "id": "U6",
+        "cat": "usability",
+        "sev": "medium",
+        "status": "blocked",
+        "title": "Form fields are labelled",
+        "detail": "homepage HTML not parsed"
+      },
+      {
+        "id": "U7",
+        "cat": "usability",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Navigation uses real links",
+        "detail": "navigation scan unavailable"
+      },
+      {
+        "id": "U8",
+        "cat": "usability",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Agent task: locate signup",
+        "detail": "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+      },
+      {
+        "id": "U9",
+        "cat": "usability",
+        "sev": "medium",
+        "status": "blocked",
+        "title": "Agent task: locate docs or help",
+        "detail": "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+      },
+      {
+        "id": "P1",
+        "cat": "payments",
+        "sev": "critical",
+        "status": "blocked",
+        "title": "Agent task: find pricing",
+        "detail": "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+      },
+      {
+        "id": "P2",
+        "cat": "payments",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Agent task: extract plan details",
+        "detail": "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+      },
+      {
+        "id": "P5",
+        "cat": "payments",
+        "sev": "critical",
+        "status": "blocked",
+        "title": "Agent task: reach the checkout interface",
+        "detail": "homepage render failed (page.evaluate: Execution context was destroyed, most likely because of a navigation)"
+      }
+    ],
+    "journey": [],
+    "tasks": {
+      "pricing": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "plans": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "signup": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "checkout": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "docs": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      }
+    },
+    "stats": {
+      "pagesFetched": 0,
+      "pages": [],
+      "crawlStopped": "no_more_links",
+      "keyPages": {},
+      "sitemap": {
+        "found": false,
+        "url": null,
+        "urlCount": 0,
+        "source": null
+      },
+      "llmsTxt": {
+        "ok": false,
+        "status": null,
+        "bytes": 0
+      },
+      "robots": {
+        "fetched": false,
+        "httpStatus": null,
+        "groupCount": 0,
+        "sitemaps": 0
+      },
+      "browser": {
+        "ran": true,
+        "unavailable": false,
+        "reason": null,
+        "requests": 0,
+        "blockedRequests": 0
+      },
+      "challengeOnHomepage": false,
+      "soft404": {
+        "status": null,
+        "is404": false,
+        "ok": false
+      }
+    },
+    "agents": [],
+    "nonCommercial": false
+  },
+  "logs": [
+    {
+      "t": "17:05:22",
+      "msg": "target: https://wemakedevs.com",
+      "kind": "info"
+    },
+    {
+      "t": "17:05:22",
+      "msg": "homepage fetch failed: error (Connection to host failed.)",
+      "kind": "fail"
+    },
+    {
+      "t": "17:05:22",
+      "msg": "homepage HTML unavailable to parse",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:22",
+      "msg": "crawl finished: 0 page(s) fetched, stopped: no_more_links",
+      "kind": "ok"
+    },
+    {
+      "t": "17:05:22",
+      "msg": "soft-404 probe failed: error",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:22",
+      "msg": "sitemap: none found (robots + standard locations)",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:22",
+      "msg": "Chromium launched (default-deny network policy for the renderer)",
+      "kind": "ok"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "aggregating 33 checks…",
+      "kind": "info"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D1: error",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D2: inconclusive",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D5: error",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D6: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D7: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D8: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D9: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check D10: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check A1: error",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check A2: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check A3: inconclusive",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check A4: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check A6: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check A7: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U1: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U2: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U3: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U4: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U6: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U7: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U8: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check U9: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check P1: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check P2: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "check P5: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "17:05:25",
+      "msg": "audit complete — score 0/100",
+      "kind": "ok"
+    }
+  ],
+  "error": null
+}

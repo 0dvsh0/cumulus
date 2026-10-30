@@ -1,0 +1,1604 @@
+{
+  "id": "a0bd43231301f",
+  "url": "https://buffer.com/",
+  "origin": "https://buffer.com",
+  "host": "buffer.com",
+  "createdAt": 1793360646074,
+  "startedAt": 1793360646074,
+  "finishedAt": 1793360692228,
+  "status": "complete",
+  "stage": "Computing score",
+  "stageId": "score",
+  "pct": 100,
+  "report": {
+    "meta": {
+      "url": "https://buffer.com/",
+      "origin": "https://buffer.com",
+      "host": "buffer.com",
+      "startedAt": 1793360646074,
+      "finishedAt": 1793360692227,
+      "durationMs": 46153,
+      "auditor": {
+        "name": "Cumulus",
+        "version": "1.0.0",
+        "license": "MIT",
+        "ua": "CumulusBot/1.0 (website AI-readiness audit; respects robots.txt)"
+      }
+    },
+    "status": "complete",
+    "score": {
+      "overall": 84,
+      "grade": "Mostly clear"
+    },
+    "coverage": {
+      "pct": 94,
+      "testedWeight": 83,
+      "applicableWeight": 88,
+      "totalWeight": 88,
+      "counts": {
+        "pass": 25,
+        "partial": 3,
+        "fail": 3,
+        "open": 2,
+        "n/a": 0
+      },
+      "byCategory": {
+        "discovery": 100,
+        "access": 100,
+        "usability": 74,
+        "payments": 100
+      }
+    },
+    "categories": [
+      {
+        "id": "discovery",
+        "name": "Discovery",
+        "q": "Can agents find your important pages, docs, products and pricing?",
+        "score": 87,
+        "counts": {
+          "pass": 9,
+          "partial": 0,
+          "fail": 1,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 0
+        },
+        "evaluatedWeight": 23,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "D1",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "url",
+                "https://buffer.com/robots.txt"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "bytes",
+                "498"
+              ],
+              [
+                "groups",
+                "2"
+              ],
+              [
+                "sitemaps referenced",
+                "8"
+              ],
+              [
+                "excerpt",
+                "User-agent: * Disallow: /add Disallow: /ajax Disallow: /button Disallow: /docs-custom-code.js Disallow: /docs-footer User-agent: bitlybot Disallow: / Sitemap: https://buffer.com/sitemap.xml Sitemap: https://buffer.com/es/sitemap.xml Sitemap: https://buffer.com/fr/sitemap.xml Sitemap: https://buffer…"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D2",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "_user-agents evaluated",
+                "chatgpt-user, oai-searchbot, claude-user, claude-searchbot, claudebot, perplexity-user, perplexitybot, applebot-extended, googlebot, bingbot"
+              ],
+              [
+                "robots",
+                "2 rule groups"
+              ],
+              [
+                "ChatGPT-User",
+                "allowed"
+              ],
+              [
+                "OAI-SearchBot",
+                "allowed"
+              ],
+              [
+                "Claude-User",
+                "allowed"
+              ],
+              [
+                "Claude-SearchBot",
+                "allowed"
+              ],
+              [
+                "ClaudeBot",
+                "allowed"
+              ],
+              [
+                "Perplexity-User",
+                "allowed"
+              ],
+              [
+                "PerplexityBot",
+                "allowed"
+              ],
+              [
+                "applebot-extended",
+                "allowed"
+              ],
+              [
+                "googlebot",
+                "allowed"
+              ],
+              [
+                "bingbot",
+                "allowed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D3",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "sitemap url",
+                "https://buffer.com/sitemap.xml"
+              ],
+              [
+                "source",
+                "robots.txt directive"
+              ],
+              [
+                "kind",
+                "urlset"
+              ],
+              [
+                "urls listed",
+                "226"
+              ],
+              [
+                "sample urls",
+                "https://buffer.com https://buffer.com/2step https://buffer.com/about https://buffer.com/accessibility https://buffer.com/ai-assistant https://buffer.com/ai-assistant/social-media-post-creator"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D4",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "pricing urls",
+                "https://buffer.com/pricing https://buffer.com/transparent-pricing"
+              ],
+              [
+                "docs urls",
+                "https://buffer.com/social-media-terms/clickbait"
+              ],
+              [
+                "signup urls",
+                "https://buffer.com/techsoup"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D5",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "url",
+                "https://buffer.com/llms.txt"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "bytes",
+                "10995"
+              ],
+              [
+                "excerpt",
+                "# Buffer API > Connect Buffer to your agents, automation tools, or build something entirely new. API Endpoint: https://api.buffer.com Authentication: Bearer token via Authorization header ## Guides - [Introduction](https://developers.buffer.com/guides/introduction.md): What the Buffer API is, what …"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D6",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "title",
+                "Buffer: Social media management for everyone"
+              ],
+              [
+                "title length",
+                "44"
+              ],
+              [
+                "description",
+                "Use Buffer to manage your social media so that you can create and share your content everywhere, consistently. Try our forever free plan or upgrade for more."
+              ],
+              [
+                "description length",
+                "157"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D7",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "canonical",
+                "https://buffer.com"
+              ],
+              [
+                "absolute",
+                "yes"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D8",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "ld+json blocks",
+                "1"
+              ],
+              [
+                "parsed ok",
+                "1"
+              ],
+              [
+                "types found",
+                "Organization"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D9",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "anchors scanned (header/nav areas)",
+                "40"
+              ],
+              [
+                "pricing link",
+                "none"
+              ],
+              [
+                "docs link",
+                "AI AssistantGet help creating, refining, and repurposing content → https://buffer.com/ai-assistant?cta=bufferSite-globalNav-tools-aiAssistant-1"
+              ],
+              [
+                "signup link",
+                "none"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D10",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "og:title",
+                "Buffer: Social media management for everyone"
+              ],
+              [
+                "og:image",
+                "https://buffer.com/ogImages/homepage-og.png"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "access",
+        "name": "Access",
+        "q": "Can agents actually retrieve the information?",
+        "score": 98,
+        "counts": {
+          "pass": 7,
+          "partial": 1,
+          "fail": 0,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 0
+        },
+        "evaluatedWeight": 25,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "A1",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "final url",
+                "https://buffer.com/"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "tls",
+                "certificate verified"
+              ],
+              [
+                "fetch time",
+                "15 ms"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A2",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "text in initial HTML",
+                "7,914 chars"
+              ],
+              [
+                "text in rendered DOM",
+                "5,747 chars"
+              ],
+              [
+                "initial-html share",
+                "138%"
+              ],
+              [
+                "raw excerpt",
+                "Buffer: Social media management for everyoneTop navigationBufferFeaturesBuffer's featuresCreateBuild your own library of content ideasPublishPlan and schedule your content across …"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A3",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "fetch as \"CumulusAgentFetch/1.0\"",
+                "200 in 50 ms, 204,869 bytes"
+              ],
+              [
+                "agent fetch content-type",
+                "text/html; charset=utf-8"
+              ],
+              [
+                "detail",
+                "no challenge markers found"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A4",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "home: /",
+                "directives: index, follow"
+              ],
+              [
+                "docs: /ai-assistant",
+                "directives: index, follow"
+              ],
+              [
+                "page: /",
+                "directives: index, follow"
+              ],
+              [
+                "page: /create",
+                "directives: index, follow"
+              ],
+              [
+                "page: /publish",
+                "directives: index, follow"
+              ],
+              [
+                "page: /insights",
+                "directives: index, follow"
+              ],
+              [
+                "page: /community",
+                "directives: index, follow"
+              ],
+              [
+                "page: /collaborate",
+                "directives: index, follow"
+              ],
+              [
+                "detail",
+                "no noindex directives on public pages"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A5",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "html size",
+                "205,230 bytes"
+              ],
+              [
+                "note",
+                "uncompressed HTML"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A6",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "html lang",
+                "en"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A7",
+            "sev": "low",
+            "status": "partial",
+            "evidence": [
+              [
+                "alternate links",
+                "8"
+              ],
+              [
+                "machine-readable",
+                "none"
+              ],
+              [
+                "detail",
+                "only hreflang alternates found (human languages, not machine formats)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A8",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "docs: /ai-assistant",
+                "HTTP 200 ✓"
+              ],
+              [
+                "pricing: /pricing",
+                "HTTP 200 ✓"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "usability",
+        "name": "Usability",
+        "q": "Can agents understand pages and navigate key workflows?",
+        "score": 100,
+        "counts": {
+          "pass": 7,
+          "partial": 0,
+          "fail": 0,
+          "blocked": 0,
+          "inconclusive": 2,
+          "error": 0,
+          "n/a": 0
+        },
+        "evaluatedWeight": 14,
+        "openWeight": 5,
+        "checks": [
+          {
+            "id": "U1",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "h1 count",
+                "1"
+              ],
+              [
+                "outline (first entries)",
+                "<h3> Channels <h3> Tools <h1> Buffer <h2> Your social media workspace <h2> 100,000316,903 creators, brands, and agencies us <h2> Core features <h3> Publish <h3> Create <h3> Community <h3> Insights"
+              ],
+              [
+                "level skips",
+                "0"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U2",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "<main> / role=main",
+                "present"
+              ],
+              [
+                "<nav> / role=navigation",
+                "present"
+              ],
+              [
+                "<footer>",
+                "present"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U3",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "images",
+                "58"
+              ],
+              [
+                "missing alt/aria",
+                "0"
+              ],
+              [
+                "coverage",
+                "100%"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U4",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "anchors scanned",
+                "155"
+              ],
+              [
+                "without visible text or aria-label",
+                "2"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U5",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "buttons scanned",
+                "18"
+              ],
+              [
+                "without name",
+                "0"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U6",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "forms",
+                "1"
+              ],
+              [
+                "fields",
+                "1"
+              ],
+              [
+                "fields without label",
+                "0"
+              ],
+              [
+                "note",
+                "the auditor never fills or submits forms"
+              ],
+              [
+                "form (no action)",
+                "1 fields, 0 unlabelled"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U7",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "real hrefs in nav areas",
+                "90"
+              ],
+              [
+                "href=\"#\" / javascript:",
+                "0"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U8",
+            "sev": "high",
+            "status": "inconclusive",
+            "evidence": [
+              [
+                "state",
+                "signup task interrupted: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U9",
+            "sev": "medium",
+            "status": "inconclusive",
+            "evidence": [
+              [
+                "state",
+                "docs task interrupted: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "payments",
+        "name": "Payments",
+        "q": "Can agents find pricing, understand plans and reach checkout?",
+        "score": 52,
+        "counts": {
+          "pass": 2,
+          "partial": 2,
+          "fail": 2,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 0
+        },
+        "evaluatedWeight": 21,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "P1",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "clicked",
+                "Pricing → /pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+              ],
+              [
+                "final url",
+                "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+              ],
+              [
+                "pricing evidence",
+                "4 price string(s) on the page"
+              ],
+              [
+                "claim",
+                "a link-following agent reached a pricing page by following links"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P2",
+            "sev": "high",
+            "status": "partial",
+            "evidence": [
+              [
+                "result",
+                "price strings present on the rendered pricing page, but plan names were not extractable as readable text"
+              ],
+              [
+                "price strings",
+                "$5 /mont $60 bill $10 /mont $120 bill"
+              ],
+              [
+                "page text length",
+                "12,334 chars"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P3",
+            "sev": "high",
+            "status": "partial",
+            "evidence": [
+              [
+                "pricing page",
+                "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "plan prices expected",
+                "none"
+              ],
+              [
+                "found in raw HTML",
+                "none"
+              ],
+              [
+                "missing from raw HTML",
+                "none"
+              ],
+              [
+                "detail",
+                "plan prices extracted from rendered page; raw comparison inconclusive"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P4",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "ld+json blocks on pricing",
+                "2"
+              ],
+              [
+                "types",
+                "Organization FAQPage"
+              ],
+              [
+                "offer-like types",
+                "0"
+              ],
+              [
+                "priced offers",
+                "0"
+              ],
+              [
+                "priced examples",
+                "none"
+              ],
+              [
+                "detail",
+                "no offer / product / price structured data on the pricing page (JSON-LD only — microdata/RDFa not parsed)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P5",
+            "sev": "critical",
+            "status": "fail",
+            "evidence": [
+              [
+                "CTAs considered",
+                "Get started for free → https://login.buffer.com/signup?product=buffer&plan=free&cycle=year&ct Start 14-day free trial → https://login.buffer.com/signup?product=buffer&plan=team&cycle=year&ct Start 14-day free trial → https://login.buffer.com/signup?product=buffer&plan=team&cycle=year&ct Start 14-da…"
+              ],
+              [
+                "final url",
+                "chrome-error://chromewebdata/"
+              ],
+              [
+                "note",
+                "no checkout or payment interface was reached following plan CTAs within the allowed hop budget"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P6",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "plan CTAs scanned",
+                "6"
+              ],
+              [
+                "real <a href> links",
+                "6"
+              ],
+              [
+                "script-only buttons",
+                "0"
+              ],
+              [
+                "cta texts",
+                "Get started for free → https://login.buffer.com/signup?product=buffer&plan=free&cyc Start 14-day free trial → https://login.buffer.com/signup?product=buffer&plan=team&cyc Start 14-day free trial → https://login.buffer.com/signup?product=buffer&plan=team&cyc Start 14-day free trial → https://login.b…"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "P5",
+        "cat": "payments",
+        "catName": "Payments",
+        "sev": "critical",
+        "status": "fail",
+        "title": "Agent task: reach the checkout interface",
+        "summary": "CTAs considered: Get started for free → https://login.buffer.com/signup?product=buffer&plan=free&cycle=year — final url: chrome-error://chromewebdata/",
+        "evidence": [
+          [
+            "CTAs considered",
+            "Get started for free → https://login.buffer.com/signup?product=buffer&plan=free&cycle=year&ct Start 14-day free trial → https://login.buffer.com/signup?product=buffer&plan=team&cycle=year&ct Start 14-day free trial → https://login.buffer.com/signup?product=buffer&plan=team&cycle=year&ct Start 14-da…"
+          ],
+          [
+            "final url",
+            "chrome-error://chromewebdata/"
+          ],
+          [
+            "note",
+            "no checkout or payment interface was reached following plan CTAs within the allowed hop budget"
+          ]
+        ],
+        "problem": "Following plan CTAs from the pricing page never reaches a checkout/payment interface.",
+        "impact": "The end of the purchase journey is uncrawlable: the agent can find plans but cannot complete what the user asked. Friction here is usually invisible in web analytics because agents leave silently.",
+        "fix": [
+          "Make plan CTAs real links pointing at a checkout/payment step.",
+          "If checkout is behind account creation, surface that link chain clearly (plan → signup/login → checkout).",
+          "For browser-only checkout, keep the entry links real — otherwise the journey dies early."
+        ],
+        "acceptance": [
+          "Following a plan CTA lands on a checkout/payment step within two hops. The auditor never fills or submits forms, never creates an account and never carries out a payment.",
+          "Re-audit reports P5 as Pass."
+        ],
+        "verify": "Agent task, manually: on pricing, follow \"Get started\"/\"Upgrade\". The auditor never fills or submits forms, never creates an account and never carries out a payment.",
+        "weight": 5
+      },
+      {
+        "id": "D9",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "high",
+        "status": "fail",
+        "title": "Navigation exposes key destinations",
+        "summary": "anchors scanned (header/nav areas): 40 — pricing link: none — docs link: AI AssistantGet help creating, refining, and repurposing content → https://buffer.com/ai-a",
+        "evidence": [
+          [
+            "anchors scanned (header/nav areas)",
+            "40"
+          ],
+          [
+            "pricing link",
+            "none"
+          ],
+          [
+            "docs link",
+            "AI AssistantGet help creating, refining, and repurposing content → https://buffer.com/ai-assistant?cta=bufferSite-globalNav-tools-aiAssistant-1"
+          ],
+          [
+            "signup link",
+            "none"
+          ]
+        ],
+        "problem": "The homepage navigation does not link (with literal, named anchors) to pricing, docs or signup.",
+        "impact": "Agents pick destinations by visible labels in link graphs. An unlinked page is invisible to any agent that navigates from the homepage — and also to crawlers that prize nav depth.",
+        "fix": [
+          "Expose Pricing, Docs and Signup as real `<a href>` items in the header/footer navigation.",
+          "Use stable human labels (\"Pricing\", \"Docs\") — agents match on text and href, not icons or JS state."
+        ],
+        "acceptance": [
+          "The rendered nav contains followable links whose text/href match pricing, docs and signup.",
+          "Re-audit reports D9 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eio \"href=\"[^\"]*(pricing|docs|signup)[^\"]*\"\"",
+        "weight": 3
+      },
+      {
+        "id": "P2",
+        "cat": "payments",
+        "catName": "Payments",
+        "sev": "high",
+        "status": "partial",
+        "title": "Agent task: extract plan details",
+        "summary": "result: price strings present on the rendered pricing page, but plan names were not extractable as — price strings: $5 /mont $60 bill $10 /mont $120 bill — page text length: 12,334 chars",
+        "evidence": [
+          [
+            "result",
+            "price strings present on the rendered pricing page, but plan names were not extractable as readable text"
+          ],
+          [
+            "price strings",
+            "$5 /mont $60 bill $10 /mont $120 bill"
+          ],
+          [
+            "page text length",
+            "12,334 chars"
+          ]
+        ],
+        "problem": "The rendered pricing page does not expose readable plan names and prices as text.",
+        "impact": "This is how agents answer plan questions: extract plan name + price as text. If the facts are not readable — images, canvas, nested canvas, or unlabeled price chips — the agent cannot relay them.",
+        "fix": [
+          "Present each plan as text (name h2/h3 + price with symbol/period).",
+          "Keep them in the DOM — not only in images or canvas."
+        ],
+        "acceptance": [
+          "At least one (ideally ≥2) named plan with a readable price is extractable from DOM text.",
+          "Re-audit reports P2 as Pass or Partial."
+        ],
+        "verify": "Agent task, manually: on the pricing page, verify text like \"Pro — $24 / month\".",
+        "weight": 3
+      },
+      {
+        "id": "P3",
+        "cat": "payments",
+        "catName": "Payments",
+        "sev": "high",
+        "status": "partial",
+        "title": "Prices present in the initial HTML",
+        "summary": "pricing page: https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1 — http status: 200 — plan prices expected: none",
+        "evidence": [
+          [
+            "pricing page",
+            "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+          ],
+          [
+            "http status",
+            "200"
+          ],
+          [
+            "plan prices expected",
+            "none"
+          ],
+          [
+            "found in raw HTML",
+            "none"
+          ],
+          [
+            "missing from raw HTML",
+            "none"
+          ],
+          [
+            "detail",
+            "plan prices extracted from rendered page; raw comparison inconclusive"
+          ]
+        ],
+        "problem": "Plan prices appear in the rendered page only after JavaScript runs — the server HTML carries none of them.",
+        "impact": "Every fetch-only agent misses JavaScript-injected prices: your pricing exists for browser agents only, half the agent population reads zero plans.",
+        "fix": [
+          "Server-render plan prices into the initial HTML of the pricing route.",
+          "If the values genuinely need client code (e.g. currency switching), render a default value server-side and hydrate on top."
+        ],
+        "acceptance": [
+          "`curl` of the pricing URL contains every plan price string (or the page is truelly JS-only with a text fallback).",
+          "Re-audit reports P3 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/pricing | grep -Eo \"\\$[0-9]+([.,][0-9]{2})?\"",
+        "weight": 3
+      },
+      {
+        "id": "P4",
+        "cat": "payments",
+        "catName": "Payments",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Offers described with structured data",
+        "summary": "ld+json blocks on pricing: 2 — types: Organization FAQPage — offer-like types: 0",
+        "evidence": [
+          [
+            "ld+json blocks on pricing",
+            "2"
+          ],
+          [
+            "types",
+            "Organization FAQPage"
+          ],
+          [
+            "offer-like types",
+            "0"
+          ],
+          [
+            "priced offers",
+            "0"
+          ],
+          [
+            "priced examples",
+            "none"
+          ],
+          [
+            "detail",
+            "no offer / product / price structured data on the pricing page (JSON-LD only — microdata/RDFa not parsed)"
+          ]
+        ],
+        "problem": "The pricing page has no valid JSON-LD offer/product markup with machine-readable price fields.",
+        "impact": "schema.org Product/Offer states price, currency and availability unambiguously. Without it, agents parse visual layout, error-prone and fragile to design changes.",
+        "fix": [
+          "Add a JSON-LD block per plan (Product with an Offer: `price`, `priceCurrency`).",
+          "For subscriptions model priceSpecification price or reference OfferCatalog.",
+          "Keep values in sync with the rendered prices."
+        ],
+        "acceptance": [
+          "Valid ld+json on the pricing page carries Product/Offer types with price fields.",
+          "Re-audit reports P4 as Pass or Partial."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/pricing | grep -i \"application/ld+json\"",
+        "weight": 2
+      },
+      {
+        "id": "A7",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "low",
+        "status": "partial",
+        "title": "Machine-readable alternate advertised",
+        "summary": "alternate links: 8 — machine-readable: none — detail: only hreflang alternates found (human languages, not machine formats)",
+        "evidence": [
+          [
+            "alternate links",
+            "8"
+          ],
+          [
+            "machine-readable",
+            "none"
+          ],
+          [
+            "detail",
+            "only hreflang alternates found (human languages, not machine formats)"
+          ]
+        ],
+        "problem": "No machine-readable alternate (RSS, Atom, Markdown) is advertised through `<link rel=\"alternate\">`.",
+        "impact": "Alternates let agents consume your content without page-layout parsing. Their absence leaves every agent scraping DOM shapes that change under them.",
+        "fix": [
+          "Advertise a feed: `<link rel=\"alternate\" type=\"application/rss+xml\" …>` (blog/changelog).",
+          "For docs, consider publishing Markdown sources and linking them as alternates: `type=\"text/markdown\"`."
+        ],
+        "acceptance": [
+          "At least one non-hreflang machine-readable alternate is advertised (or genuinely no feed-worthy content exists — then file as N/A).",
+          "Re-audit reports A7 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"rel=.*alternate\"",
+        "weight": 1
+      }
+    ],
+    "open": [
+      {
+        "id": "U8",
+        "cat": "usability",
+        "sev": "high",
+        "status": "inconclusive",
+        "title": "Agent task: locate signup",
+        "detail": "signup task interrupted: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+      },
+      {
+        "id": "U9",
+        "cat": "usability",
+        "sev": "medium",
+        "status": "inconclusive",
+        "title": "Agent task: locate docs or help",
+        "detail": "docs task interrupted: page.evaluate: Execution context was destroyed, most likely because of a navigation"
+      }
+    ],
+    "journey": [
+      {
+        "detail": "browser navigate → buffer.com/",
+        "url": "https://buffer.com/"
+      },
+      {
+        "detail": "page loaded (HTTP 200)",
+        "url": "https://buffer.com/"
+      }
+    ],
+    "tasks": {
+      "pricing": {
+        "status": "pass",
+        "finalUrl": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1",
+        "steps": [
+          {
+            "detail": "click “Pricing”",
+            "url": "https://buffer.com/"
+          },
+          {
+            "detail": "landed on buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1",
+            "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1",
+            "ok": true
+          }
+        ]
+      },
+      "plans": {
+        "status": "partial",
+        "finalUrl": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1",
+        "steps": []
+      },
+      "signup": {
+        "status": "inconclusive",
+        "finalUrl": null,
+        "steps": []
+      },
+      "checkout": {
+        "status": "fail",
+        "finalUrl": null,
+        "steps": [
+          {
+            "detail": "follow CTA “Get started for free”",
+            "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+          },
+          {
+            "detail": "landed on buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1",
+            "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1",
+            "ok": true
+          },
+          {
+            "detail": "follow CTA “Start 14-day free trial”",
+            "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+          },
+          {
+            "detail": "navigation did not complete",
+            "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+          },
+          {
+            "detail": "follow CTA “Start 14-day free trial”",
+            "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+          },
+          {
+            "detail": "navigation did not complete",
+            "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1"
+          }
+        ]
+      },
+      "docs": {
+        "status": "inconclusive",
+        "finalUrl": null,
+        "steps": []
+      }
+    },
+    "stats": {
+      "pagesFetched": 14,
+      "pages": [
+        {
+          "url": "https://buffer.com/",
+          "status": 200,
+          "ms": 59
+        },
+        {
+          "url": "https://buffer.com/create?cta=bufferSite-globalNav-tools-create-1",
+          "status": 200,
+          "ms": 49
+        },
+        {
+          "url": "https://buffer.com/publish?cta=bufferSite-globalNav-tools-publish-1",
+          "status": 200,
+          "ms": 4
+        },
+        {
+          "url": "https://buffer.com/insights?cta=bufferSite-globalNav-tools-insights-1",
+          "status": 200,
+          "ms": 59
+        },
+        {
+          "url": "https://buffer.com/community?cta=bufferSite-globalNav-tools-community-1",
+          "status": 200,
+          "ms": 30
+        },
+        {
+          "url": "https://buffer.com/collaborate?cta=bufferSite-globalNav-tools-collaborate-1",
+          "status": 200,
+          "ms": 39
+        },
+        {
+          "url": "https://buffer.com/start-page?cta=bufferSite-globalNav-tools-startPage-1",
+          "status": 200,
+          "ms": 33
+        },
+        {
+          "url": "https://buffer.com/ai-assistant?cta=bufferSite-globalNav-tools-aiAssistant-1",
+          "status": 200,
+          "ms": 31
+        },
+        {
+          "url": "https://buffer.com/api?cta=bufferSite-globalNav-tools-api-1",
+          "status": 200,
+          "ms": 70
+        },
+        {
+          "url": "https://buffer.com/instagram?cta=bufferSite-globalNav-channels-instagram-1",
+          "status": 200,
+          "ms": 28
+        },
+        {
+          "url": "https://buffer.com/facebook?cta=bufferSite-globalNav-channels-facebook-1",
+          "status": 200,
+          "ms": 30
+        },
+        {
+          "url": "https://buffer.com/tiktok?cta=bufferSite-globalNav-channels-tiktok-1",
+          "status": 200,
+          "ms": 27
+        },
+        {
+          "url": "https://buffer.com/linkedin?cta=bufferSite-globalNav-channels-linkedin-1",
+          "status": 200,
+          "ms": 47
+        },
+        {
+          "url": "https://buffer.com/x?cta=bufferSite-globalNav-channels-x-1",
+          "status": 200,
+          "ms": 20
+        }
+      ],
+      "crawlStopped": "page_limit",
+      "keyPages": {
+        "docs": {
+          "url": "https://buffer.com/ai-assistant?cta=bufferSite-globalNav-tools-aiAssistant-1",
+          "status": 200,
+          "ok": true
+        },
+        "pricing": {
+          "url": "https://buffer.com/pricing?cta=bufferSite-globalNav-pricing-pricing-1",
+          "status": 200,
+          "ok": true
+        }
+      },
+      "sitemap": {
+        "found": true,
+        "url": "https://buffer.com/sitemap.xml",
+        "urlCount": 226,
+        "source": "robots.txt directive"
+      },
+      "llmsTxt": {
+        "ok": true,
+        "status": 200,
+        "bytes": 10995
+      },
+      "robots": {
+        "fetched": true,
+        "httpStatus": 200,
+        "groupCount": 2,
+        "sitemaps": 8
+      },
+      "browser": {
+        "ran": true,
+        "unavailable": false,
+        "reason": null,
+        "requests": 0,
+        "blockedRequests": 7
+      },
+      "challengeOnHomepage": false,
+      "soft404": {
+        "status": 404,
+        "is404": true,
+        "ok": true
+      }
+    },
+    "agents": [
+      {
+        "agent": "chatgpt-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "oai-searchbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claude-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claude-searchbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claudebot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "perplexity-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "perplexitybot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "applebot-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "googlebot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "bingbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "gptbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "ccbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "google-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "bytespider",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "anthropic-ai",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "applebot-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "imagesift",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "omgilibot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "omgili",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "diffbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "meta-externalagent",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "amazonbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      }
+    ],
+    "nonCommercial": false
+  },
+  "logs": [
+    {
+      "t": "17:14:06",
+      "msg": "target: https://buffer.com",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:06",
+      "msg": "robots.txt: 2 rule group(s), 8 sitemap(s) referenced",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:08",
+      "msg": "homepage: HTTP 200, 205,230 bytes in 15 ms",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:09",
+      "msg": "parsed homepage: 194 anchors, 6 buttons, 1 forms",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:10",
+      "msg": "crawled / — 194 links",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:11",
+      "msg": "crawled 2 page(s)…",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:13",
+      "msg": "crawled 3 page(s)…",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:14",
+      "msg": "crawled 4 page(s)…",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:15",
+      "msg": "crawled 5 page(s)…",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:19",
+      "msg": "crawled 8 page(s)…",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:25",
+      "msg": "crawled 12 page(s)…",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:28",
+      "msg": "crawl finished: 14 page(s) fetched, stopped: page_limit",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:29",
+      "msg": "soft-404 probe: HTTP 404 (correct 404)",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:30",
+      "msg": "docs page: HTTP 200 (142,386 bytes)",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:30",
+      "msg": "sitemap: 226 URLs from https://buffer.com/sitemap.xml (via robots.txt directive)",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:38",
+      "msg": "Chromium launched (default-deny network policy for the renderer)",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:45",
+      "msg": "rendered buffer.com/ — DOM text 5,747 chars, 1 price strings",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:52",
+      "msg": "browser tasks finished (0 request(s), 6 blocked by guard)",
+      "kind": "ok"
+    },
+    {
+      "t": "17:14:52",
+      "msg": "aggregating 33 checks…",
+      "kind": "info"
+    },
+    {
+      "t": "17:14:52",
+      "msg": "check U8: inconclusive",
+      "kind": "warn"
+    },
+    {
+      "t": "17:14:52",
+      "msg": "check U9: inconclusive",
+      "kind": "warn"
+    },
+    {
+      "t": "17:14:52",
+      "msg": "audit complete — score 84/100",
+      "kind": "ok"
+    }
+  ],
+  "error": null
+}

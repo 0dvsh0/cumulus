@@ -1,0 +1,1614 @@
+{
+  "id": "a301942eec20c",
+  "url": "https://producthunt.com/",
+  "origin": "https://producthunt.com",
+  "host": "producthunt.com",
+  "createdAt": 1793364533949,
+  "startedAt": 1793364533949,
+  "finishedAt": 1793364540741,
+  "status": "complete",
+  "stage": "Computing score",
+  "stageId": "score",
+  "pct": 100,
+  "report": {
+    "meta": {
+      "url": "https://producthunt.com/",
+      "origin": "https://producthunt.com",
+      "host": "producthunt.com",
+      "startedAt": 1793364533949,
+      "finishedAt": 1793364540741,
+      "durationMs": 6792,
+      "auditor": {
+        "name": "Cumulus",
+        "version": "1.0.0",
+        "license": "MIT",
+        "ua": "CumulusBot/1.0 (website AI-readiness audit; respects robots.txt)"
+      }
+    },
+    "status": "complete",
+    "score": {
+      "overall": 39,
+      "grade": "Cloudy"
+    },
+    "coverage": {
+      "pct": 74,
+      "testedWeight": 50,
+      "applicableWeight": 68,
+      "totalWeight": 88,
+      "counts": {
+        "pass": 7,
+        "partial": 2,
+        "fail": 11,
+        "open": 5,
+        "n/a": 8
+      },
+      "byCategory": {
+        "discovery": 100,
+        "access": 100,
+        "usability": 58,
+        "payments": 0
+      }
+    },
+    "categories": [
+      {
+        "id": "discovery",
+        "name": "Discovery",
+        "q": "Can agents find your important pages, docs, products and pricing?",
+        "score": 45,
+        "counts": {
+          "pass": 3,
+          "partial": 1,
+          "fail": 5,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 1
+        },
+        "evaluatedWeight": 21,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "D1",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "url",
+                "https://producthunt.com/robots.txt"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "bytes",
+                "1,503"
+              ],
+              [
+                "groups",
+                "3"
+              ],
+              [
+                "sitemaps referenced",
+                "10"
+              ],
+              [
+                "excerpt",
+                "User-agent: * Allow: /sitemaps_v3/* Disallow: /auth/* Disallow: /search* Disallow: /*?*comment=* Disallow: /*?*review=* Disallow: /my/* Disallow: /yours* Disallow: /notifications Disallow: /@*/* # Auth-gated and redirect-only endpoints — no indexable content. # `$` anchors the match so post/discuss…"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D2",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "_user-agents evaluated",
+                "chatgpt-user, oai-searchbot, claude-user, claude-searchbot, claudebot, perplexity-user, perplexitybot, applebot-extended, googlebot, bingbot"
+              ],
+              [
+                "robots",
+                "3 rule groups"
+              ],
+              [
+                "ChatGPT-User",
+                "allowed"
+              ],
+              [
+                "OAI-SearchBot",
+                "allowed"
+              ],
+              [
+                "Claude-User",
+                "allowed"
+              ],
+              [
+                "Claude-SearchBot",
+                "allowed"
+              ],
+              [
+                "ClaudeBot",
+                "allowed"
+              ],
+              [
+                "Perplexity-User",
+                "allowed"
+              ],
+              [
+                "PerplexityBot",
+                "allowed"
+              ],
+              [
+                "applebot-extended",
+                "allowed"
+              ],
+              [
+                "googlebot",
+                "allowed"
+              ],
+              [
+                "bingbot",
+                "allowed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D3",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "checked locations",
+                "Sitemap: directives from robots.txt, then /sitemap.xml, /sitemap_index.xml, /sitemap-index.xml, /wp-sitemap.xml"
+              ],
+              [
+                "result",
+                "no parseable sitemap found"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D4",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no usable sitemap (see D3)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D5",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "url",
+                "https://producthunt.com/llms.txt"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "bytes",
+                "5714"
+              ],
+              [
+                "excerpt",
+                "# Product Hunt A community-driven platform where people discover, share, and discuss the best new products in tech. ## Site Overview - Users submit product launches of their own or \"hunt\" other launches they use and care to share with the community. - Launches compete to be at the top of the leader…"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D6",
+            "sev": "high",
+            "status": "partial",
+            "evidence": [
+              [
+                "title",
+                "Just a moment..."
+              ],
+              [
+                "title length",
+                "16"
+              ],
+              [
+                "description",
+                "(none)"
+              ],
+              [
+                "description length",
+                "0"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D7",
+            "sev": "low",
+            "status": "fail",
+            "evidence": [
+              [
+                "canonical",
+                "not declared (no link[rel=canonical], no og:url)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D8",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "ld+json blocks",
+                "0"
+              ],
+              [
+                "parsed ok",
+                "0"
+              ],
+              [
+                "types found",
+                "none"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D9",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "anchors scanned (header/nav areas)",
+                "0"
+              ],
+              [
+                "pricing link",
+                "none"
+              ],
+              [
+                "docs link",
+                "none"
+              ],
+              [
+                "signup link",
+                "none"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D10",
+            "sev": "low",
+            "status": "fail",
+            "evidence": [
+              [
+                "og:title",
+                "(none)"
+              ],
+              [
+                "og:image",
+                "(none)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "access",
+        "name": "Access",
+        "q": "Can agents actually retrieve the information?",
+        "score": 14,
+        "counts": {
+          "pass": 2,
+          "partial": 0,
+          "fail": 5,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 1
+        },
+        "evaluatedWeight": 22,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "A1",
+            "sev": "critical",
+            "status": "fail",
+            "evidence": [
+              [
+                "final url",
+                "https://producthunt.com/"
+              ],
+              [
+                "http status",
+                "403"
+              ],
+              [
+                "content-type",
+                "text/html; charset=UTF-8"
+              ],
+              [
+                "tls",
+                "certificate verified"
+              ],
+              [
+                "fetch time",
+                "1 ms"
+              ],
+              [
+                "detail",
+                "homepage returned 403"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A2",
+            "sev": "critical",
+            "status": "fail",
+            "evidence": [
+              [
+                "text in initial HTML",
+                "16 chars"
+              ],
+              [
+                "text in rendered DOM",
+                "261 chars"
+              ],
+              [
+                "initial-html share",
+                "6%"
+              ],
+              [
+                "raw excerpt",
+                "Just a moment..."
+              ],
+              [
+                "detail",
+                "primary content appears only after JavaScript runs"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A3",
+            "sev": "critical",
+            "status": "fail",
+            "evidence": [
+              [
+                "fetch as \"CumulusAgentFetch/1.0\"",
+                "403 in 1 ms, 5,608 bytes"
+              ],
+              [
+                "agent fetch content-type",
+                "text/html; charset=UTF-8"
+              ],
+              [
+                "rendered challenge",
+                "markers: just a moment"
+              ],
+              [
+                "fetch as \"CumulusAgentFetch/1.0\"",
+                "403 — blocked by WAF/gateway"
+              ],
+              [
+                "detail",
+                "requests from an agent user-agent are challenged or blocked"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A4",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "home: /",
+                "directives: noindex,nofollow"
+              ],
+              [
+                "page: /",
+                "directives: noindex,nofollow"
+              ],
+              [
+                "detail",
+                "2 public page(s) tell search/agent systems not to index them"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A5",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "html size",
+                "5,544 bytes"
+              ],
+              [
+                "note",
+                "uncompressed HTML"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A6",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "html lang",
+                "en-US"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A7",
+            "sev": "low",
+            "status": "fail",
+            "evidence": [
+              [
+                "alternate links",
+                "0"
+              ],
+              [
+                "machine-readable",
+                "none"
+              ],
+              [
+                "detail",
+                "no advertised RSS/Atom/Markdown alternate"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A8",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no key pages discovered to verify (see D9 / browser tasks)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "usability",
+        "name": "Usability",
+        "q": "Can agents understand pages and navigate key workflows?",
+        "score": 57,
+        "counts": {
+          "pass": 2,
+          "partial": 1,
+          "fail": 1,
+          "blocked": 2,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 3
+        },
+        "evaluatedWeight": 7,
+        "openWeight": 5,
+        "checks": [
+          {
+            "id": "U1",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "h1 count",
+                "0"
+              ],
+              [
+                "outline (first entries)",
+                "none"
+              ],
+              [
+                "level skips",
+                "0"
+              ],
+              [
+                "detail",
+                "no h1 heading at all"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U2",
+            "sev": "medium",
+            "status": "partial",
+            "evidence": [
+              [
+                "<main> / role=main",
+                "present"
+              ],
+              [
+                "<nav> / role=navigation",
+                "missing"
+              ],
+              [
+                "<footer>",
+                "present"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U3",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "images",
+                "1"
+              ],
+              [
+                "missing alt/aria",
+                "0"
+              ],
+              [
+                "coverage",
+                "100%"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U4",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "anchors scanned",
+                "2"
+              ],
+              [
+                "without visible text or aria-label",
+                "0"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U5",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "buttons",
+                "none found on the tested page"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U6",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "forms",
+                "none on the homepage"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U7",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "real hrefs in nav areas",
+                "0"
+              ],
+              [
+                "href=\"#\" / javascript:",
+                "0"
+              ],
+              [
+                "detail",
+                "no nav area with links found (see U2)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U8",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "rendered homepage presents a bot challenge."
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U9",
+            "sev": "medium",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "rendered homepage presents a bot challenge."
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "payments",
+        "name": "Payments",
+        "q": "Can agents find pricing, understand plans and reach checkout?",
+        "score": null,
+        "counts": {
+          "pass": 0,
+          "partial": 0,
+          "fail": 0,
+          "blocked": 3,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 3
+        },
+        "evaluatedWeight": 0,
+        "openWeight": 13,
+        "checks": [
+          {
+            "id": "P1",
+            "sev": "critical",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "rendered homepage presents a bot challenge."
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P2",
+            "sev": "high",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "rendered homepage presents a bot challenge."
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P3",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P4",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P5",
+            "sev": "critical",
+            "status": "blocked",
+            "evidence": [
+              [
+                "state",
+                "rendered homepage presents a bot challenge."
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P6",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "A3",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "critical",
+        "status": "fail",
+        "title": "No bot challenge on public pages",
+        "summary": "fetch as \"CumulusAgentFetch/1.0\": 403 in 1 ms, 5,608 bytes — agent fetch content-type: text/html; charset=UTF-8 — rendered challenge: markers: just a moment",
+        "evidence": [
+          [
+            "fetch as \"CumulusAgentFetch/1.0\"",
+            "403 in 1 ms, 5,608 bytes"
+          ],
+          [
+            "agent fetch content-type",
+            "text/html; charset=UTF-8"
+          ],
+          [
+            "rendered challenge",
+            "markers: just a moment"
+          ],
+          [
+            "fetch as \"CumulusAgentFetch/1.0\"",
+            "403 — blocked by WAF/gateway"
+          ],
+          [
+            "detail",
+            "requests from an agent user-agent are challenged or blocked"
+          ]
+        ],
+        "problem": "Requests shaped like an autonomous agent (no browser, plain UA) are challenged (CAPTCHA/interstitial) or dropped (401/403/429) instead of receiving the page.",
+        "impact": "Bot-walls aimed at datacentre traffic take out legitimate assistants too. Fetching agents stop at the door: they cannot see any page, however well it is built. Human traffic looks fine, which is why the problem is easy to miss.",
+        "fix": [
+          "Update WAF/bot rules so known AI-assistant UAs (ChatGPT-User, Claude-User, Perplexity-User…) are not challenged on public pages.",
+          "Avoid serving CAPTCHA interstitials to requests that merely GET a public page.",
+          "If you rate-limit, return 429 with a Retry-After rather than a challenge page (and keep public pages far from the limit)."
+        ],
+        "acceptance": [
+          "A plain-HTTP request with a non-browser UA gets the actual page (200), not a challenge.",
+          "Re-audit reports A3 as Pass or Inconclusive (recoverable state)."
+        ],
+        "verify": "curl -fsS -A \"AIAssistant/1.0\" https://YOUR-SITE/ -o - | head -20",
+        "weight": 5
+      },
+      {
+        "id": "A2",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "critical",
+        "status": "fail",
+        "title": "Core content is in the initial HTML",
+        "summary": "text in initial HTML: 16 chars — text in rendered DOM: 261 chars — initial-html share: 6%",
+        "evidence": [
+          [
+            "text in initial HTML",
+            "16 chars"
+          ],
+          [
+            "text in rendered DOM",
+            "261 chars"
+          ],
+          [
+            "initial-html share",
+            "6%"
+          ],
+          [
+            "raw excerpt",
+            "Just a moment..."
+          ],
+          [
+            "detail",
+            "primary content appears only after JavaScript runs"
+          ]
+        ],
+        "problem": "The rendered DOM carries far more text than the initial HTML — the primary content is assembled by JavaScript after page load.",
+        "impact": "Fetching agents read the bytes your server sends. Where the key content exists only after JS, those agents see a shell: empty pricing, empty docs, nothing to quote.",
+        "fix": [
+          "Server-render (or prerender) homepage, pricing and docs content so text exists in the initial HTML.",
+          "Keep client-side scripts for interactivity only; never rely on them to insert the product facts.",
+          "If your stack cannot server-render, pre-render at build time for the key routes."
+        ],
+        "acceptance": [
+          "Raw-HTML text reaches ≥55% of the rendered text (ideally near 100%) on the homepage and pricing page.",
+          "Re-audit reports A2 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | wc -c",
+        "weight": 5
+      },
+      {
+        "id": "A1",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "critical",
+        "status": "fail",
+        "title": "Homepage reachable over HTTPS",
+        "summary": "final url: https://producthunt.com/ — http status: 403 — content-type: text/html; charset=UTF-8",
+        "evidence": [
+          [
+            "final url",
+            "https://producthunt.com/"
+          ],
+          [
+            "http status",
+            "403"
+          ],
+          [
+            "content-type",
+            "text/html; charset=UTF-8"
+          ],
+          [
+            "tls",
+            "certificate verified"
+          ],
+          [
+            "fetch time",
+            "1 ms"
+          ],
+          [
+            "detail",
+            "homepage returned 403"
+          ]
+        ],
+        "problem": "The homepage could not be fetched by a plain HTTP(S) client, or is not served over HTTPS, or did not respond with HTML.",
+        "impact": "This is ground zero: nothing else can be tested, and no agent — fetch-style or browser — can read the site at all.",
+        "fix": [
+          "Resolve the serving error the auditor reported in the evidence block (timeout, connection refused, non-200, wrong content-type).",
+          "Serve your site (and all key pages) over HTTPS with a valid certificate.",
+          "Test without cookies, JavaScript or a country whitelist: a plain GET must return HTML."
+        ],
+        "acceptance": [
+          "A plain GET of the homepage returns 200 with text/html over HTTPS.",
+          "Re-audit reports A1 as Pass."
+        ],
+        "verify": "curl -fsSI https://YOUR-SITE/",
+        "weight": 5
+      },
+      {
+        "id": "A4",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "high",
+        "status": "fail",
+        "title": "Pages are not marked noindex",
+        "summary": "home: /: directives: noindex,nofollow — page: /: directives: noindex,nofollow — detail: 2 public page(s) tell search/agent systems not to index them",
+        "evidence": [
+          [
+            "home: /",
+            "directives: noindex,nofollow"
+          ],
+          [
+            "page: /",
+            "directives: noindex,nofollow"
+          ],
+          [
+            "detail",
+            "2 public page(s) tell search/agent systems not to index them"
+          ]
+        ],
+        "problem": "A public page carries `meta name=\"robots\" content=\"… noindex …\"` (or Googlebot equivalent).",
+        "impact": "noindex is a standing instruction for retrieval systems to forget the page. Applied by accident to catalogues or docs (common with previews and staging configs leaking to prod), the page disappears from agent search results.",
+        "fix": [
+          "Audit the `<meta name=\"robots\">` and `X-Robots-Tag` headers across public templates.",
+          "Remove noindex from pages agents should read; keep it only on genuinely private/utility pages.",
+          "Verify the prod build does not inherit noindex from staging defaults."
+        ],
+        "acceptance": [
+          "No public page returns a noindex directive.",
+          "Re-audit reports A4 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"name=\"robots\"\"",
+        "weight": 3
+      },
+      {
+        "id": "D9",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "high",
+        "status": "fail",
+        "title": "Navigation exposes key destinations",
+        "summary": "anchors scanned (header/nav areas): 0 — pricing link: none — docs link: none",
+        "evidence": [
+          [
+            "anchors scanned (header/nav areas)",
+            "0"
+          ],
+          [
+            "pricing link",
+            "none"
+          ],
+          [
+            "docs link",
+            "none"
+          ],
+          [
+            "signup link",
+            "none"
+          ]
+        ],
+        "problem": "The homepage navigation does not link (with literal, named anchors) to pricing, docs or signup.",
+        "impact": "Agents pick destinations by visible labels in link graphs. An unlinked page is invisible to any agent that navigates from the homepage — and also to crawlers that prize nav depth.",
+        "fix": [
+          "Expose Pricing, Docs and Signup as real `<a href>` items in the header/footer navigation.",
+          "Use stable human labels (\"Pricing\", \"Docs\") — agents match on text and href, not icons or JS state."
+        ],
+        "acceptance": [
+          "The rendered nav contains followable links whose text/href match pricing, docs and signup.",
+          "Re-audit reports D9 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eio \"href=\"[^\"]*(pricing|docs|signup)[^\"]*\"\"",
+        "weight": 3
+      },
+      {
+        "id": "D3",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "high",
+        "status": "fail",
+        "title": "XML sitemap is discoverable",
+        "summary": "checked locations: Sitemap: directives from robots.txt, then /sitemap.xml, /sitemap_index.xml, /sitemap-index — result: no parseable sitemap found",
+        "evidence": [
+          [
+            "checked locations",
+            "Sitemap: directives from robots.txt, then /sitemap.xml, /sitemap_index.xml, /sitemap-index.xml, /wp-sitemap.xml"
+          ],
+          [
+            "result",
+            "no parseable sitemap found"
+          ]
+        ],
+        "problem": "No XML sitemap was found — neither via the `Sitemap:` directive in robots.txt nor at the standard locations (/sitemap.xml, /sitemap_index.xml, /sitemap-index.xml, /wp-sitemap.xml).",
+        "impact": "Agents that map a site from its sitemap see nothing: pages that are not prominently linked do not exist for them. Human visitors find those pages through on-page flows; agents often never do.",
+        "fix": [
+          "Generate an XML sitemap covering your public pages (most frameworks/plugins can emit one).",
+          "Reference it from robots.txt with an absolute URL.",
+          "Keep it under ~50,000 URLs / 50 MB per file and use sitemap indexes for larger sites."
+        ],
+        "acceptance": [
+          "A `Sitemap:` line in robots.txt (or /sitemap.xml) serves valid XML with a `<urlset>`.",
+          "Re-audit reports D3 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/sitemap.xml | head -5",
+        "weight": 3
+      },
+      {
+        "id": "D6",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "high",
+        "status": "partial",
+        "title": "Title and meta description in HTML",
+        "summary": "title: Just a moment... — title length: 16 — description: (none)",
+        "evidence": [
+          [
+            "title",
+            "Just a moment..."
+          ],
+          [
+            "title length",
+            "16"
+          ],
+          [
+            "description",
+            "(none)"
+          ],
+          [
+            "description length",
+            "0"
+          ]
+        ],
+        "problem": "The homepage title and/or meta description are missing, empty or an unusable length for summarisation.",
+        "impact": "Title and meta description are the summary an agent reads before deciding to spend context on a page. Weak or missing ones make the agent guess about your site, or skip it.",
+        "fix": [
+          "Give the homepage a `<title>` of roughly 10–90 characters containing the brand and what it does.",
+          "Add `<meta name=\"description\">` of roughly 20–300 characters answering \"what is this?\" in plain language.",
+          "Check the representative subpages (pricing, docs) inherit sensible titles."
+        ],
+        "acceptance": [
+          "The page has a non-empty `<title>` (4–90 chars) and a meta description (20–300 chars).",
+          "Re-audit reports D6 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eo \"<title[^>]*>[^<]*</title>|name=\"description\"[^>]*>\"",
+        "weight": 3
+      },
+      {
+        "id": "U1",
+        "cat": "usability",
+        "catName": "Usability",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Heading structure is clear",
+        "summary": "h1 count: 0 — outline (first entries): none — level skips: 0",
+        "evidence": [
+          [
+            "h1 count",
+            "0"
+          ],
+          [
+            "outline (first entries)",
+            "none"
+          ],
+          [
+            "level skips",
+            "0"
+          ],
+          [
+            "detail",
+            "no h1 heading at all"
+          ]
+        ],
+        "problem": "The page has zero, several, or structurally broken headings (level skips), so its outline does not segment cleanly.",
+        "impact": "Agents skim through headings to build an internal map of the page. A broken outline (empty h1, multiple h1s, h2 after h4) miscarries that map and loses detail.",
+        "fix": [
+          "Exactly one `<h1>` per page, stating the page topic.",
+          "Use h2/h3 in strict order under it; avoid level skips."
+        ],
+        "acceptance": [
+          "Rendered page has one h1 and an outline with no level skips.",
+          "Re-audit reports U1 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eio \"<h1[^>]*>[^<]*</h1>\"",
+        "weight": 2
+      },
+      {
+        "id": "D8",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Valid JSON-LD structured data",
+        "summary": "ld+json blocks: 0 — parsed ok: 0 — types found: none",
+        "evidence": [
+          [
+            "ld+json blocks",
+            "0"
+          ],
+          [
+            "parsed ok",
+            "0"
+          ],
+          [
+            "types found",
+            "none"
+          ]
+        ],
+        "problem": "The site has no valid JSON-LD structured data, or the blocks it does carry fail to parse.",
+        "impact": "JSON-LD states facts explicitly — organisation, products, prices, articles — so agents do not need to walk the DOM. Without it they infer everything from copy, and inference is where they get it wrong.",
+        "fix": [
+          "Add a `<script type=\"application/ld+json\">` block with at least `@type: Organization|WebSite` on the homepage.",
+          "Validate each block with a JSON parser — a single trailing comma invalidates the block (this is the usual cause of \"unparseable block\").",
+          "On pricing pages add Product/Offer; on docs add TechArticle where sensible."
+        ],
+        "acceptance": [
+          "At least one valid ld+json block parses and declares `@type`.",
+          "Re-audit reports D8 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -c \"application/ld+json\"",
+        "weight": 2
+      },
+      {
+        "id": "U2",
+        "cat": "usability",
+        "catName": "Usability",
+        "sev": "medium",
+        "status": "partial",
+        "title": "Semantic landmarks are used",
+        "summary": "<main> / role=main: present — <nav> / role=navigation: missing — <footer>: present",
+        "evidence": [
+          [
+            "<main> / role=main",
+            "present"
+          ],
+          [
+            "<nav> / role=navigation",
+            "missing"
+          ],
+          [
+            "<footer>",
+            "present"
+          ]
+        ],
+        "problem": "The page is missing semantic landmarks (`main`, `nav`, `footer` or their roles).",
+        "impact": "Landmarks separate content from chrome. Without them, agents can spend context on legalese and cookie banners — or quote the wrong part of the page.",
+        "fix": [
+          "Wrap page content in `<main>`, put site links in `<nav>`, footer in `<footer>`.",
+          "Add `role=\"main\"` / `role=\"navigation\"` where the tags cannot be used."
+        ],
+        "acceptance": [
+          "Rendered page exposes `<main>`, `<nav>` and `<footer>`. ",
+          "Re-audit reports U2 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eio \"<(main|nav|footer)[ >]\"",
+        "weight": 2
+      },
+      {
+        "id": "A7",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "low",
+        "status": "fail",
+        "title": "Machine-readable alternate advertised",
+        "summary": "alternate links: 0 — machine-readable: none — detail: no advertised RSS/Atom/Markdown alternate",
+        "evidence": [
+          [
+            "alternate links",
+            "0"
+          ],
+          [
+            "machine-readable",
+            "none"
+          ],
+          [
+            "detail",
+            "no advertised RSS/Atom/Markdown alternate"
+          ]
+        ],
+        "problem": "No machine-readable alternate (RSS, Atom, Markdown) is advertised through `<link rel=\"alternate\">`.",
+        "impact": "Alternates let agents consume your content without page-layout parsing. Their absence leaves every agent scraping DOM shapes that change under them.",
+        "fix": [
+          "Advertise a feed: `<link rel=\"alternate\" type=\"application/rss+xml\" …>` (blog/changelog).",
+          "For docs, consider publishing Markdown sources and linking them as alternates: `type=\"text/markdown\"`."
+        ],
+        "acceptance": [
+          "At least one non-hreflang machine-readable alternate is advertised (or genuinely no feed-worthy content exists — then file as N/A).",
+          "Re-audit reports A7 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"rel=.*alternate\"",
+        "weight": 1
+      },
+      {
+        "id": "D10",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "low",
+        "status": "fail",
+        "title": "Open Graph metadata",
+        "summary": "og:title: (none) — og:image: (none)",
+        "evidence": [
+          [
+            "og:title",
+            "(none)"
+          ],
+          [
+            "og:image",
+            "(none)"
+          ]
+        ],
+        "problem": "The homepage sets no Open Graph metadata (og:title/og:image), or only one of the pair.",
+        "impact": "Link previews in chat tools and agent summaries fall back to a bare URL or an arbitrary h1/card. Sharing your product loses its name, description and image in the places agent users actually paste links.",
+        "fix": [
+          "Add `og:title`, `og:description`, `og:type` and `og:image` (absolute image URL ≥ 1200×630 preferred).",
+          "Add `og:url` echoing the canonical URL."
+        ],
+        "acceptance": [
+          "og:title and og:image are present on public templates.",
+          "Re-audit reports D10 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"og:title\\|og:image\"",
+        "weight": 1
+      },
+      {
+        "id": "D7",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "low",
+        "status": "fail",
+        "title": "Canonical URL is declared",
+        "summary": "canonical: not declared (no link[rel=canonical], no og:url)",
+        "evidence": [
+          [
+            "canonical",
+            "not declared (no link[rel=canonical], no og:url)"
+          ]
+        ],
+        "problem": "The page declares no canonical URL — and has no og:url fallback either.",
+        "impact": "Agents meeting http/https, www/apex or query-string variants treat them as different documents. Machine summarisation and caches end up split, and the \"wrong\" variant can outrun the one you meant.",
+        "fix": [
+          "Add `<link rel=\"canonical\" href=\"…\">` to each template, with one chosen host form and no parameters.",
+          "If your generators cannot emit it, at minimum publish `og:url`."
+        ],
+        "acceptance": [
+          "Every public template emits a canonical link with an absolute URL.",
+          "Re-audit reports D7 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"rel=.*canonical\"",
+        "weight": 1
+      }
+    ],
+    "open": [
+      {
+        "id": "U8",
+        "cat": "usability",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Agent task: locate signup",
+        "detail": "rendered homepage presents a bot challenge."
+      },
+      {
+        "id": "U9",
+        "cat": "usability",
+        "sev": "medium",
+        "status": "blocked",
+        "title": "Agent task: locate docs or help",
+        "detail": "rendered homepage presents a bot challenge."
+      },
+      {
+        "id": "P1",
+        "cat": "payments",
+        "sev": "critical",
+        "status": "blocked",
+        "title": "Agent task: find pricing",
+        "detail": "rendered homepage presents a bot challenge."
+      },
+      {
+        "id": "P2",
+        "cat": "payments",
+        "sev": "high",
+        "status": "blocked",
+        "title": "Agent task: extract plan details",
+        "detail": "rendered homepage presents a bot challenge."
+      },
+      {
+        "id": "P5",
+        "cat": "payments",
+        "sev": "critical",
+        "status": "blocked",
+        "title": "Agent task: reach the checkout interface",
+        "detail": "rendered homepage presents a bot challenge."
+      }
+    ],
+    "journey": [
+      {
+        "detail": "browser navigate → producthunt.com/",
+        "url": "https://producthunt.com/"
+      },
+      {
+        "detail": "page loaded (HTTP 403)",
+        "url": "https://producthunt.com/"
+      }
+    ],
+    "tasks": {
+      "pricing": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "plans": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "signup": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "checkout": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      },
+      "docs": {
+        "status": "blocked",
+        "finalUrl": null,
+        "steps": []
+      }
+    },
+    "stats": {
+      "pagesFetched": 1,
+      "pages": [
+        {
+          "url": "https://producthunt.com/",
+          "status": 403,
+          "ms": 17
+        }
+      ],
+      "crawlStopped": "no_more_links",
+      "keyPages": {},
+      "sitemap": {
+        "found": false,
+        "url": null,
+        "urlCount": 0,
+        "source": null
+      },
+      "llmsTxt": {
+        "ok": true,
+        "status": 200,
+        "bytes": 5714
+      },
+      "robots": {
+        "fetched": true,
+        "httpStatus": 200,
+        "groupCount": 3,
+        "sitemaps": 10
+      },
+      "browser": {
+        "ran": true,
+        "unavailable": false,
+        "reason": null,
+        "requests": 0,
+        "blockedRequests": 0
+      },
+      "challengeOnHomepage": true,
+      "soft404": {
+        "status": 403,
+        "is404": true,
+        "ok": true
+      }
+    },
+    "agents": [
+      {
+        "agent": "chatgpt-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "oai-searchbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claude-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claude-searchbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claudebot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "perplexity-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "perplexitybot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "applebot-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "googlebot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "bingbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "gptbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "ccbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "google-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "bytespider",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "anthropic-ai",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "applebot-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "imagesift",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "omgilibot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "omgili",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "diffbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "meta-externalagent",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "amazonbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      }
+    ],
+    "nonCommercial": false
+  },
+  "logs": [
+    {
+      "t": "18:18:53",
+      "msg": "target: https://producthunt.com",
+      "kind": "info"
+    },
+    {
+      "t": "18:18:54",
+      "msg": "robots.txt: 3 rule group(s), 10 sitemap(s) referenced",
+      "kind": "ok"
+    },
+    {
+      "t": "18:18:54",
+      "msg": "homepage: HTTP 403, 5,544 bytes in 1 ms",
+      "kind": "ok"
+    },
+    {
+      "t": "18:18:55",
+      "msg": "parsed homepage: 0 anchors, 0 buttons, 0 forms",
+      "kind": "ok"
+    },
+    {
+      "t": "18:18:55",
+      "msg": "crawled / — 0 links",
+      "kind": "ok"
+    },
+    {
+      "t": "18:18:55",
+      "msg": "crawl finished: 1 page(s) fetched, stopped: no_more_links",
+      "kind": "ok"
+    },
+    {
+      "t": "18:18:55",
+      "msg": "soft-404 probe: HTTP 403 (correct 404)",
+      "kind": "ok"
+    },
+    {
+      "t": "18:18:56",
+      "msg": "sitemap: none found (robots + standard locations)",
+      "kind": "warn"
+    },
+    {
+      "t": "18:18:57",
+      "msg": "Chromium launched (default-deny network policy for the renderer)",
+      "kind": "ok"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "rendered producthunt.com/ — DOM text 261 chars, 0 price strings",
+      "kind": "ok"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "bot challenge on rendered homepage: markers: just a moment",
+      "kind": "warn"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "aggregating 33 checks…",
+      "kind": "info"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "check U8: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "check U9: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "check P1: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "check P2: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "check P5: blocked",
+      "kind": "warn"
+    },
+    {
+      "t": "18:19:00",
+      "msg": "audit complete — score 39/100",
+      "kind": "ok"
+    }
+  ],
+  "error": null
+}

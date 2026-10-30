@@ -1,0 +1,1523 @@
+{
+  "id": "a0f1d63f4bc28",
+  "url": "https://wemakedevs.com/",
+  "origin": "https://wemakedevs.com",
+  "host": "wemakedevs.com",
+  "createdAt": 1793367264639,
+  "startedAt": 1793367264639,
+  "finishedAt": 1793367274515,
+  "status": "complete",
+  "stage": "Computing score",
+  "stageId": "score",
+  "pct": 100,
+  "report": {
+    "meta": {
+      "url": "https://wemakedevs.com/",
+      "origin": "https://wemakedevs.com",
+      "host": "wemakedevs.com",
+      "startedAt": 1793367264639,
+      "finishedAt": 1793367274514,
+      "durationMs": 9875,
+      "auditor": {
+        "name": "Cumulus",
+        "version": "1.0.0",
+        "license": "MIT",
+        "ua": "CumulusBot/1.0 (website AI-readiness audit; respects robots.txt)"
+      }
+    },
+    "status": "complete",
+    "score": {
+      "overall": 45,
+      "grade": "Mostly cloudy"
+    },
+    "coverage": {
+      "pct": 100,
+      "testedWeight": 49,
+      "applicableWeight": 49,
+      "totalWeight": 88,
+      "counts": {
+        "pass": 8,
+        "partial": 0,
+        "fail": 12,
+        "open": 0,
+        "n/a": 13
+      },
+      "byCategory": {
+        "discovery": 100,
+        "access": 100,
+        "usability": 100,
+        "payments": null
+      }
+    },
+    "categories": [
+      {
+        "id": "discovery",
+        "name": "Discovery",
+        "q": "Can agents find your important pages, docs, products and pricing?",
+        "score": 48,
+        "counts": {
+          "pass": 4,
+          "partial": 0,
+          "fail": 6,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 0
+        },
+        "evaluatedWeight": 23,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "D1",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "url",
+                "https://wemakedevs.com/robots.txt"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "bytes",
+                "66"
+              ],
+              [
+                "groups",
+                "1"
+              ],
+              [
+                "sitemaps referenced",
+                "1"
+              ],
+              [
+                "excerpt",
+                "User-agent: * Allow: / LLM-Policy: /llms.txt Sitemap: /sitemap.xml"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D2",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "_user-agents evaluated",
+                "chatgpt-user, oai-searchbot, claude-user, claude-searchbot, claudebot, perplexity-user, perplexitybot, applebot-extended, googlebot, bingbot"
+              ],
+              [
+                "robots",
+                "1 rule groups"
+              ],
+              [
+                "ChatGPT-User",
+                "allowed"
+              ],
+              [
+                "OAI-SearchBot",
+                "allowed"
+              ],
+              [
+                "Claude-User",
+                "allowed"
+              ],
+              [
+                "Claude-SearchBot",
+                "allowed"
+              ],
+              [
+                "ClaudeBot",
+                "allowed"
+              ],
+              [
+                "Perplexity-User",
+                "allowed"
+              ],
+              [
+                "PerplexityBot",
+                "allowed"
+              ],
+              [
+                "applebot-extended",
+                "allowed"
+              ],
+              [
+                "googlebot",
+                "allowed"
+              ],
+              [
+                "bingbot",
+                "allowed"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D3",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "sitemap url",
+                "https://wemakedevs.com/sitemap.xml"
+              ],
+              [
+                "source",
+                "robots.txt directive"
+              ],
+              [
+                "kind",
+                "urlset"
+              ],
+              [
+                "urls listed",
+                "1"
+              ],
+              [
+                "sample urls",
+                "https://wemakedevs.com/lander"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D4",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "pricing urls",
+                "none"
+              ],
+              [
+                "docs urls",
+                "none"
+              ],
+              [
+                "signup urls",
+                "none"
+              ],
+              [
+                "detail",
+                "sitemap exists but lists none of: pricing, docs, signup"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D5",
+            "sev": "low",
+            "status": "pass",
+            "evidence": [
+              [
+                "url",
+                "https://wemakedevs.com/llms.txt"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "bytes",
+                "65"
+              ],
+              [
+                "excerpt",
+                "User-agent: * Allow: / Disallow-Training: / Sitemap: /sitemap.xml"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D6",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "title",
+                "(empty)"
+              ],
+              [
+                "title length",
+                "0"
+              ],
+              [
+                "description",
+                "(none)"
+              ],
+              [
+                "description length",
+                "0"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D7",
+            "sev": "low",
+            "status": "fail",
+            "evidence": [
+              [
+                "canonical",
+                "not declared (no link[rel=canonical], no og:url)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D8",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "ld+json blocks",
+                "0"
+              ],
+              [
+                "parsed ok",
+                "0"
+              ],
+              [
+                "types found",
+                "none"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D9",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "anchors scanned (header/nav areas)",
+                "0"
+              ],
+              [
+                "pricing link",
+                "none"
+              ],
+              [
+                "docs link",
+                "none"
+              ],
+              [
+                "signup link",
+                "none"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "D10",
+            "sev": "low",
+            "status": "fail",
+            "evidence": [
+              [
+                "og:title",
+                "(none)"
+              ],
+              [
+                "og:image",
+                "(none)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "access",
+        "name": "Access",
+        "q": "Can agents actually retrieve the information?",
+        "score": 88,
+        "counts": {
+          "pass": 4,
+          "partial": 0,
+          "fail": 2,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 2
+        },
+        "evaluatedWeight": 17,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "A1",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "final url",
+                "https://wemakedevs.com/"
+              ],
+              [
+                "http status",
+                "200"
+              ],
+              [
+                "content-type",
+                "text/html"
+              ],
+              [
+                "tls",
+                "certificate verified"
+              ],
+              [
+                "fetch time",
+                "1 ms"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A2",
+            "sev": "critical",
+            "status": "n/a",
+            "evidence": [
+              [
+                "text in initial HTML",
+                "0 chars"
+              ],
+              [
+                "text in rendered DOM",
+                "0 chars"
+              ],
+              [
+                "initial-html share",
+                "n/a"
+              ],
+              [
+                "raw excerpt",
+                ""
+              ],
+              [
+                "detail",
+                "rendered page too sparse to compare"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A3",
+            "sev": "critical",
+            "status": "pass",
+            "evidence": [
+              [
+                "fetch as \"CumulusAgentFetch/1.0\"",
+                "200 in 1 ms, 114 bytes"
+              ],
+              [
+                "agent fetch content-type",
+                "text/html"
+              ],
+              [
+                "detail",
+                "no challenge markers found"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A4",
+            "sev": "high",
+            "status": "pass",
+            "evidence": [
+              [
+                "home: /",
+                "none"
+              ],
+              [
+                "page: /",
+                "none"
+              ],
+              [
+                "detail",
+                "no noindex directives on public pages"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A5",
+            "sev": "medium",
+            "status": "pass",
+            "evidence": [
+              [
+                "html size",
+                "114 bytes"
+              ],
+              [
+                "note",
+                "uncompressed HTML"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A6",
+            "sev": "low",
+            "status": "fail",
+            "evidence": [
+              [
+                "html lang",
+                "(none)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A7",
+            "sev": "low",
+            "status": "fail",
+            "evidence": [
+              [
+                "alternate links",
+                "0"
+              ],
+              [
+                "machine-readable",
+                "none"
+              ],
+              [
+                "detail",
+                "no advertised RSS/Atom/Markdown alternate"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "A8",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no key pages discovered to verify (see D9 / browser tasks)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "usability",
+        "name": "Usability",
+        "q": "Can agents understand pages and navigate key workflows?",
+        "score": 0,
+        "counts": {
+          "pass": 0,
+          "partial": 0,
+          "fail": 4,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 5
+        },
+        "evaluatedWeight": 9,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "U1",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "h1 count",
+                "0"
+              ],
+              [
+                "outline (first entries)",
+                "none"
+              ],
+              [
+                "level skips",
+                "0"
+              ],
+              [
+                "detail",
+                "no h1 heading at all"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U2",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "<main> / role=main",
+                "missing"
+              ],
+              [
+                "<nav> / role=navigation",
+                "missing"
+              ],
+              [
+                "<footer>",
+                "missing"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U3",
+            "sev": "low",
+            "status": "n/a",
+            "evidence": [
+              [
+                "images",
+                "0 on the tested page"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U4",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "anchors",
+                "0 on the tested page"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U5",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "buttons",
+                "none found on the tested page"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U6",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "forms",
+                "none on the homepage"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U7",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "real hrefs in nav areas",
+                "0"
+              ],
+              [
+                "href=\"#\" / javascript:",
+                "0"
+              ],
+              [
+                "detail",
+                "no nav area with links found (see U2)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U8",
+            "sev": "high",
+            "status": "fail",
+            "evidence": [
+              [
+                "result",
+                "no signup/register/get-started link or button was found"
+              ],
+              [
+                "anchors scanned",
+                "0 in header/nav, 0 on the page"
+              ],
+              [
+                "sample labels",
+                "none"
+              ],
+              [
+                "claim",
+                "no signup affordance reachable from the rendered homepage"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "U9",
+            "sev": "medium",
+            "status": "fail",
+            "evidence": [
+              [
+                "result",
+                "no docs/documentation/help/support link follows from the pages visited"
+              ],
+              [
+                "anchors scanned",
+                "0 in header/nav, 0 on the rendered homepage"
+              ],
+              [
+                "sample labels",
+                "none"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      },
+      {
+        "id": "payments",
+        "name": "Payments",
+        "q": "Can agents find pricing, understand plans and reach checkout?",
+        "score": null,
+        "counts": {
+          "pass": 0,
+          "partial": 0,
+          "fail": 0,
+          "blocked": 0,
+          "inconclusive": 0,
+          "error": 0,
+          "n/a": 6
+        },
+        "evaluatedWeight": 0,
+        "openWeight": 0,
+        "checks": [
+          {
+            "id": "P1",
+            "sev": "critical",
+            "status": "n/a",
+            "evidence": [
+              [
+                "result",
+                "no pricing link was found in rendered nav, rendered body anchors, or initial HTML"
+              ],
+              [
+                "anchors scanned",
+                "0 in header/nav, 0 on the rendered homepage"
+              ],
+              [
+                "sample labels",
+                "none"
+              ],
+              [
+                "initial-HTML nav",
+                "no pricing-classified link found either"
+              ],
+              [
+                "sitemap pricing urls",
+                "0"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P2",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "pricing page not reached (task state: fail)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P3",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P4",
+            "sev": "medium",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P5",
+            "sev": "critical",
+            "status": "n/a",
+            "evidence": [
+              [
+                "CTAs considered",
+                "none found"
+              ],
+              [
+                "note",
+                "no checkout or payment interface was reached following plan CTAs within the allowed hop budget"
+              ]
+            ],
+            "note": null
+          },
+          {
+            "id": "P6",
+            "sev": "high",
+            "status": "n/a",
+            "evidence": [
+              [
+                "reason",
+                "no pricing page found (see P1)"
+              ]
+            ],
+            "note": null
+          }
+        ]
+      }
+    ],
+    "findings": [
+      {
+        "id": "U8",
+        "cat": "usability",
+        "catName": "Usability",
+        "sev": "high",
+        "status": "fail",
+        "title": "Agent task: locate signup",
+        "summary": "result: no signup/register/get-started link or button was found — anchors scanned: 0 in header/nav, 0 on the page — sample labels: none",
+        "evidence": [
+          [
+            "result",
+            "no signup/register/get-started link or button was found"
+          ],
+          [
+            "anchors scanned",
+            "0 in header/nav, 0 on the page"
+          ],
+          [
+            "sample labels",
+            "none"
+          ],
+          [
+            "claim",
+            "no signup affordance reachable from the rendered homepage"
+          ]
+        ],
+        "problem": "An agent following links from your homepage cannot reach an account-creation affordance (or what it finds there is not clearly a signup).",
+        "impact": "A delegated \"help me get started\" task dead-ends. Signup is the front door for users who arrive through the agent, so what is uncrawlable there is also uncaptured.",
+        "fix": [
+          "Expose signup/register/create-account as a link with a human label.",
+          "Point it at a page that visibly offers sign-up (email/password fields, OAuth providers)."
+        ],
+        "acceptance": [
+          "Following nav labels from `/` reaches a page with clear account-creation affordances.",
+          "Re-audit reports U8 as Pass."
+        ],
+        "verify": "Agent task, manually: open the homepage, click \"Sign up\". The auditor never fills or submits forms, never creates an account and never carries out a payment.",
+        "weight": 3
+      },
+      {
+        "id": "D9",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "high",
+        "status": "fail",
+        "title": "Navigation exposes key destinations",
+        "summary": "anchors scanned (header/nav areas): 0 — pricing link: none — docs link: none",
+        "evidence": [
+          [
+            "anchors scanned (header/nav areas)",
+            "0"
+          ],
+          [
+            "pricing link",
+            "none"
+          ],
+          [
+            "docs link",
+            "none"
+          ],
+          [
+            "signup link",
+            "none"
+          ]
+        ],
+        "problem": "The homepage navigation does not link (with literal, named anchors) to pricing, docs or signup.",
+        "impact": "Agents pick destinations by visible labels in link graphs. An unlinked page is invisible to any agent that navigates from the homepage — and also to crawlers that prize nav depth.",
+        "fix": [
+          "Expose Pricing, Docs and Signup as real `<a href>` items in the header/footer navigation.",
+          "Use stable human labels (\"Pricing\", \"Docs\") — agents match on text and href, not icons or JS state."
+        ],
+        "acceptance": [
+          "The rendered nav contains followable links whose text/href match pricing, docs and signup.",
+          "Re-audit reports D9 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eio \"href=\"[^\"]*(pricing|docs|signup)[^\"]*\"\"",
+        "weight": 3
+      },
+      {
+        "id": "D6",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "high",
+        "status": "fail",
+        "title": "Title and meta description in HTML",
+        "summary": "title: (empty) — title length: 0 — description: (none)",
+        "evidence": [
+          [
+            "title",
+            "(empty)"
+          ],
+          [
+            "title length",
+            "0"
+          ],
+          [
+            "description",
+            "(none)"
+          ],
+          [
+            "description length",
+            "0"
+          ]
+        ],
+        "problem": "The homepage title and/or meta description are missing, empty or an unusable length for summarisation.",
+        "impact": "Title and meta description are the summary an agent reads before deciding to spend context on a page. Weak or missing ones make the agent guess about your site, or skip it.",
+        "fix": [
+          "Give the homepage a `<title>` of roughly 10–90 characters containing the brand and what it does.",
+          "Add `<meta name=\"description\">` of roughly 20–300 characters answering \"what is this?\" in plain language.",
+          "Check the representative subpages (pricing, docs) inherit sensible titles."
+        ],
+        "acceptance": [
+          "The page has a non-empty `<title>` (4–90 chars) and a meta description (20–300 chars).",
+          "Re-audit reports D6 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eo \"<title[^>]*>[^<]*</title>|name=\"description\"[^>]*>\"",
+        "weight": 3
+      },
+      {
+        "id": "U9",
+        "cat": "usability",
+        "catName": "Usability",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Agent task: locate docs or help",
+        "summary": "result: no docs/documentation/help/support link follows from the pages visited — anchors scanned: 0 in header/nav, 0 on the rendered homepage — sample labels: none",
+        "evidence": [
+          [
+            "result",
+            "no docs/documentation/help/support link follows from the pages visited"
+          ],
+          [
+            "anchors scanned",
+            "0 in header/nav, 0 on the rendered homepage"
+          ],
+          [
+            "sample labels",
+            "none"
+          ]
+        ],
+        "problem": "The docs/help/knowledge-base link is missing, broken, or the destination is not documentation-like content.",
+        "impact": "Agents answer \"how do I…\" questions from your docs. If they cannot reach them, they answer from guesses — which is worse than a refusal.",
+        "fix": [
+          "Link docs/help/support/knowledge-base prominently and keep a dedicated surface.",
+          "Ensure GET of the docs URL (with a plain UA) returns real content."
+        ],
+        "acceptance": [
+          "A docs link is followed to a docs-like page with real content.",
+          "Re-audit reports U9 as Pass."
+        ],
+        "verify": "Agent task, manually: open the homepage, click \"Docs\"/\"Help\". ",
+        "weight": 2
+      },
+      {
+        "id": "U2",
+        "cat": "usability",
+        "catName": "Usability",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Semantic landmarks are used",
+        "summary": "<main> / role=main: missing — <nav> / role=navigation: missing — <footer>: missing",
+        "evidence": [
+          [
+            "<main> / role=main",
+            "missing"
+          ],
+          [
+            "<nav> / role=navigation",
+            "missing"
+          ],
+          [
+            "<footer>",
+            "missing"
+          ]
+        ],
+        "problem": "The page is missing semantic landmarks (`main`, `nav`, `footer` or their roles).",
+        "impact": "Landmarks separate content from chrome. Without them, agents can spend context on legalese and cookie banners — or quote the wrong part of the page.",
+        "fix": [
+          "Wrap page content in `<main>`, put site links in `<nav>`, footer in `<footer>`.",
+          "Add `role=\"main\"` / `role=\"navigation\"` where the tags cannot be used."
+        ],
+        "acceptance": [
+          "Rendered page exposes `<main>`, `<nav>` and `<footer>`. ",
+          "Re-audit reports U2 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eio \"<(main|nav|footer)[ >]\"",
+        "weight": 2
+      },
+      {
+        "id": "U1",
+        "cat": "usability",
+        "catName": "Usability",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Heading structure is clear",
+        "summary": "h1 count: 0 — outline (first entries): none — level skips: 0",
+        "evidence": [
+          [
+            "h1 count",
+            "0"
+          ],
+          [
+            "outline (first entries)",
+            "none"
+          ],
+          [
+            "level skips",
+            "0"
+          ],
+          [
+            "detail",
+            "no h1 heading at all"
+          ]
+        ],
+        "problem": "The page has zero, several, or structurally broken headings (level skips), so its outline does not segment cleanly.",
+        "impact": "Agents skim through headings to build an internal map of the page. A broken outline (empty h1, multiple h1s, h2 after h4) miscarries that map and loses detail.",
+        "fix": [
+          "Exactly one `<h1>` per page, stating the page topic.",
+          "Use h2/h3 in strict order under it; avoid level skips."
+        ],
+        "acceptance": [
+          "Rendered page has one h1 and an outline with no level skips.",
+          "Re-audit reports U1 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -Eio \"<h1[^>]*>[^<]*</h1>\"",
+        "weight": 2
+      },
+      {
+        "id": "D8",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Valid JSON-LD structured data",
+        "summary": "ld+json blocks: 0 — parsed ok: 0 — types found: none",
+        "evidence": [
+          [
+            "ld+json blocks",
+            "0"
+          ],
+          [
+            "parsed ok",
+            "0"
+          ],
+          [
+            "types found",
+            "none"
+          ]
+        ],
+        "problem": "The site has no valid JSON-LD structured data, or the blocks it does carry fail to parse.",
+        "impact": "JSON-LD states facts explicitly — organisation, products, prices, articles — so agents do not need to walk the DOM. Without it they infer everything from copy, and inference is where they get it wrong.",
+        "fix": [
+          "Add a `<script type=\"application/ld+json\">` block with at least `@type: Organization|WebSite` on the homepage.",
+          "Validate each block with a JSON parser — a single trailing comma invalidates the block (this is the usual cause of \"unparseable block\").",
+          "On pricing pages add Product/Offer; on docs add TechArticle where sensible."
+        ],
+        "acceptance": [
+          "At least one valid ld+json block parses and declares `@type`.",
+          "Re-audit reports D8 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -c \"application/ld+json\"",
+        "weight": 2
+      },
+      {
+        "id": "D4",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "medium",
+        "status": "fail",
+        "title": "Sitemap lists key pages",
+        "summary": "pricing urls: none — docs urls: none — signup urls: none",
+        "evidence": [
+          [
+            "pricing urls",
+            "none"
+          ],
+          [
+            "docs urls",
+            "none"
+          ],
+          [
+            "signup urls",
+            "none"
+          ],
+          [
+            "detail",
+            "sitemap exists but lists none of: pricing, docs, signup"
+          ]
+        ],
+        "problem": "A sitemap exists, but pricing, docs or signup pages are absent from it.",
+        "impact": "The pages you most want agents to reach are invisible to the agents that enumerate from the sitemap — the sitemap tells them everything else matters more.",
+        "fix": [
+          "Add your canonical pricing, docs and signup URLs to the sitemap.",
+          "Keep entries 200-OK only, and drop redirects or soft-404s."
+        ],
+        "acceptance": [
+          "The sitemap lists the canonical URLs of pricing, docs and signup.",
+          "Re-audit reports D4 as Partial or Pass (≥2 of 3 present)."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/sitemap.xml | grep -Ei \"pricing|docs|signup\"",
+        "weight": 2
+      },
+      {
+        "id": "A7",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "low",
+        "status": "fail",
+        "title": "Machine-readable alternate advertised",
+        "summary": "alternate links: 0 — machine-readable: none — detail: no advertised RSS/Atom/Markdown alternate",
+        "evidence": [
+          [
+            "alternate links",
+            "0"
+          ],
+          [
+            "machine-readable",
+            "none"
+          ],
+          [
+            "detail",
+            "no advertised RSS/Atom/Markdown alternate"
+          ]
+        ],
+        "problem": "No machine-readable alternate (RSS, Atom, Markdown) is advertised through `<link rel=\"alternate\">`.",
+        "impact": "Alternates let agents consume your content without page-layout parsing. Their absence leaves every agent scraping DOM shapes that change under them.",
+        "fix": [
+          "Advertise a feed: `<link rel=\"alternate\" type=\"application/rss+xml\" …>` (blog/changelog).",
+          "For docs, consider publishing Markdown sources and linking them as alternates: `type=\"text/markdown\"`."
+        ],
+        "acceptance": [
+          "At least one non-hreflang machine-readable alternate is advertised (or genuinely no feed-worthy content exists — then file as N/A).",
+          "Re-audit reports A7 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"rel=.*alternate\"",
+        "weight": 1
+      },
+      {
+        "id": "A6",
+        "cat": "access",
+        "catName": "Access",
+        "sev": "low",
+        "status": "fail",
+        "title": "Document language is declared",
+        "summary": "html lang: (none)",
+        "evidence": [
+          [
+            "html lang",
+            "(none)"
+          ]
+        ],
+        "problem": "The page has no `lang` attribute on `<html>`, or an invalid primary tag.",
+        "impact": "Agents use it to choose language handling, translation and locale-sensitive answers; a missing or broken lang risks skewed extraction and wrong-language replies.",
+        "fix": [
+          "Set `<html lang=\"…\">` (BCP-47 primary tag, e.g. `en`, `de`, `pt-BR`) on every template."
+        ],
+        "acceptance": [
+          "The homepage `<html>` carries a valid BCP-47 lang attribute.",
+          "Re-audit reports A6 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -io \"<html[^>]*lang[^>]*>\"",
+        "weight": 1
+      },
+      {
+        "id": "D10",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "low",
+        "status": "fail",
+        "title": "Open Graph metadata",
+        "summary": "og:title: (none) — og:image: (none)",
+        "evidence": [
+          [
+            "og:title",
+            "(none)"
+          ],
+          [
+            "og:image",
+            "(none)"
+          ]
+        ],
+        "problem": "The homepage sets no Open Graph metadata (og:title/og:image), or only one of the pair.",
+        "impact": "Link previews in chat tools and agent summaries fall back to a bare URL or an arbitrary h1/card. Sharing your product loses its name, description and image in the places agent users actually paste links.",
+        "fix": [
+          "Add `og:title`, `og:description`, `og:type` and `og:image` (absolute image URL ≥ 1200×630 preferred).",
+          "Add `og:url` echoing the canonical URL."
+        ],
+        "acceptance": [
+          "og:title and og:image are present on public templates.",
+          "Re-audit reports D10 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"og:title\\|og:image\"",
+        "weight": 1
+      },
+      {
+        "id": "D7",
+        "cat": "discovery",
+        "catName": "Discovery",
+        "sev": "low",
+        "status": "fail",
+        "title": "Canonical URL is declared",
+        "summary": "canonical: not declared (no link[rel=canonical], no og:url)",
+        "evidence": [
+          [
+            "canonical",
+            "not declared (no link[rel=canonical], no og:url)"
+          ]
+        ],
+        "problem": "The page declares no canonical URL — and has no og:url fallback either.",
+        "impact": "Agents meeting http/https, www/apex or query-string variants treat them as different documents. Machine summarisation and caches end up split, and the \"wrong\" variant can outrun the one you meant.",
+        "fix": [
+          "Add `<link rel=\"canonical\" href=\"…\">` to each template, with one chosen host form and no parameters.",
+          "If your generators cannot emit it, at minimum publish `og:url`."
+        ],
+        "acceptance": [
+          "Every public template emits a canonical link with an absolute URL.",
+          "Re-audit reports D7 as Pass."
+        ],
+        "verify": "curl -fsS https://YOUR-SITE/ | grep -i \"rel=.*canonical\"",
+        "weight": 1
+      }
+    ],
+    "open": [],
+    "journey": [
+      {
+        "detail": "browser navigate → wemakedevs.com/",
+        "url": "https://wemakedevs.com/"
+      },
+      {
+        "detail": "page loaded (HTTP 200)",
+        "url": "https://wemakedevs.com/lander"
+      }
+    ],
+    "tasks": {
+      "pricing": {
+        "status": "fail",
+        "finalUrl": null,
+        "steps": []
+      },
+      "plans": {
+        "status": "na",
+        "finalUrl": null,
+        "steps": []
+      },
+      "signup": {
+        "status": "fail",
+        "finalUrl": null,
+        "steps": []
+      },
+      "checkout": {
+        "status": "na",
+        "finalUrl": null,
+        "steps": []
+      },
+      "docs": {
+        "status": "fail",
+        "finalUrl": null,
+        "steps": []
+      }
+    },
+    "stats": {
+      "pagesFetched": 1,
+      "pages": [
+        {
+          "url": "https://wemakedevs.com/",
+          "status": 200,
+          "ms": 1
+        }
+      ],
+      "crawlStopped": "no_more_links",
+      "keyPages": {},
+      "sitemap": {
+        "found": true,
+        "url": "https://wemakedevs.com/sitemap.xml",
+        "urlCount": 1,
+        "source": "robots.txt directive"
+      },
+      "llmsTxt": {
+        "ok": true,
+        "status": 200,
+        "bytes": 65
+      },
+      "robots": {
+        "fetched": true,
+        "httpStatus": 200,
+        "groupCount": 1,
+        "sitemaps": 1
+      },
+      "browser": {
+        "ran": true,
+        "unavailable": false,
+        "reason": null,
+        "requests": 0,
+        "blockedRequests": 9
+      },
+      "challengeOnHomepage": false,
+      "soft404": {
+        "status": 200,
+        "is404": false,
+        "ok": true
+      }
+    },
+    "agents": [
+      {
+        "agent": "chatgpt-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "oai-searchbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claude-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claude-searchbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "claudebot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "perplexity-user",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "perplexitybot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "applebot-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "googlebot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "bingbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": true,
+        "group": "retrieval"
+      },
+      {
+        "agent": "gptbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "ccbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "google-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "bytespider",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "anthropic-ai",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "applebot-extended",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "imagesift",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "omgilibot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "omgili",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "diffbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "meta-externalagent",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      },
+      {
+        "agent": "amazonbot",
+        "allowed": true,
+        "blocked": [],
+        "mentioned": false,
+        "group": "training"
+      }
+    ],
+    "nonCommercial": true
+  },
+  "logs": [
+    {
+      "t": "19:04:24",
+      "msg": "target: https://wemakedevs.com",
+      "kind": "info"
+    },
+    {
+      "t": "19:04:25",
+      "msg": "robots.txt: 1 rule group(s), 1 sitemap(s) referenced",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:26",
+      "msg": "homepage: HTTP 200, 114 bytes in 1 ms",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:26",
+      "msg": "parsed homepage: 0 anchors, 0 buttons, 0 forms",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:27",
+      "msg": "crawled / — 0 links",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:27",
+      "msg": "crawl finished: 1 page(s) fetched, stopped: no_more_links",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:27",
+      "msg": "soft-404 probe: HTTP 200 (returns 200 — soft 404!)",
+      "kind": "warn"
+    },
+    {
+      "t": "19:04:28",
+      "msg": "sitemap: 1 URLs from https://wemakedevs.com/sitemap.xml (via robots.txt directive)",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:29",
+      "msg": "Chromium launched (default-deny network policy for the renderer)",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:32",
+      "msg": "rendered wemakedevs.com/lander — DOM text 0 chars, 0 price strings",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:34",
+      "msg": "browser tasks finished (0 request(s), 9 blocked by guard)",
+      "kind": "ok"
+    },
+    {
+      "t": "19:04:34",
+      "msg": "aggregating 33 checks…",
+      "kind": "info"
+    },
+    {
+      "t": "19:04:34",
+      "msg": "audit complete — score 45/100",
+      "kind": "ok"
+    }
+  ],
+  "error": null
+}
