@@ -1,0 +1,333 @@
+{
+  "name": "Cumulus",
+  "version": "1.0.0",
+  "userAgent": "CumulusBot/1.0 (website AI-readiness audit; respects robots.txt)",
+  "checks": [
+    {
+      "id": "D1",
+      "cat": "discovery",
+      "sev": "medium",
+      "title": "robots.txt is published and readable",
+      "why": "Robots.txt is the first file every compliant agent reads: policy plus a pointer to the sitemap.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D2",
+      "cat": "discovery",
+      "sev": "critical",
+      "title": "AI retrieval agents are allowed",
+      "why": "Retrieval assistants (ChatGPT-User, ClaudeBot, PerplexityBot…) obey robots.txt and are the front door for agent users.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D3",
+      "cat": "discovery",
+      "sev": "high",
+      "title": "XML sitemap is discoverable",
+      "why": "Sitemaps enumerate pages that are not prominently linked and tell agents what content exists.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D4",
+      "cat": "discovery",
+      "sev": "medium",
+      "title": "Sitemap lists key pages",
+      "why": "If pricing, docs and signup are missing from the sitemap, agents that use it find nothing.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D5",
+      "cat": "discovery",
+      "sev": "low",
+      "title": "llms.txt is published",
+      "why": "A curated Markdown map (/llms.txt) is an emerging convention that lets agents ingest the site without layout parsing.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D6",
+      "cat": "discovery",
+      "sev": "high",
+      "title": "Title and meta description in HTML",
+      "why": "The summary agents use to decide whether to read a page at all.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D7",
+      "cat": "discovery",
+      "sev": "low",
+      "title": "Canonical URL is declared",
+      "why": "Tells agents which URL variant is authoritative across http/https, www, query-string and path variants.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D8",
+      "cat": "discovery",
+      "sev": "medium",
+      "title": "Valid JSON-LD structured data",
+      "why": "Unambiguous facts about the organisation and pages, readable without DOM walking.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D9",
+      "cat": "discovery",
+      "sev": "high",
+      "title": "Navigation exposes key destinations",
+      "why": "Agents pick links by visible labels. If pricing, docs and signup are not linked, they are invisible on purpose-free fetches too.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "D10",
+      "cat": "discovery",
+      "sev": "low",
+      "title": "Open Graph metadata",
+      "why": "og:title and og:image keep link previews consistent for both humans and agents that summarise by card.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A1",
+      "cat": "access",
+      "sev": "critical",
+      "title": "Homepage reachable over HTTPS",
+      "why": "If the homepage is not reachable with a plain HTTP client, nothing else can be audited — and no agent can read the site.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A2",
+      "cat": "access",
+      "sev": "critical",
+      "title": "Core content is in the initial HTML",
+      "why": "Fetch-only agents receive the server HTML verbatim. If the content is assembled by JavaScript, they see an empty shell.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A3",
+      "cat": "access",
+      "sev": "critical",
+      "title": "No bot challenge on public pages",
+      "why": "CAPTCHAs and \"verify you are human\" interstials stop autonomous agents at the door even when the page would load.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A4",
+      "cat": "access",
+      "sev": "high",
+      "title": "Pages are not marked noindex",
+      "why": "noindex is a standing instruction for retrieval systems to forget the page — often applied to catalogues or docs by accident.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A5",
+      "cat": "access",
+      "sev": "medium",
+      "title": "HTML is a reasonable size",
+      "why": "Fetchers with capped context windows truncate or drop oversized documents before the useful part is reached.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A6",
+      "cat": "access",
+      "sev": "low",
+      "title": "Document language is declared",
+      "why": "Helps agents pick language handling for extraction, translation and locale-sensitive answers.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A7",
+      "cat": "access",
+      "sev": "low",
+      "title": "Machine-readable alternate advertised",
+      "why": "Advertised feeds or Markdown alternatives let agents consume content without DOM parsing.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "A8",
+      "cat": "access",
+      "sev": "high",
+      "title": "Key pages return successful responses",
+      "why": "Discovered pricing, docs and signup pages must actually load with a normal agent user-agent.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U1",
+      "cat": "usability",
+      "sev": "medium",
+      "title": "Heading structure is clear",
+      "why": "One h1 plus an ordered outline lets agents segment a page the way readers do.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U2",
+      "cat": "usability",
+      "sev": "medium",
+      "title": "Semantic landmarks are used",
+      "why": "main, nav and footer separate content from chrome; without them agents must guess which text matters.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U3",
+      "cat": "usability",
+      "sev": "low",
+      "title": "Images have alt text",
+      "why": "Agents cannot see screenshots, diagrams or chart images — alt text is what they read.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U4",
+      "cat": "usability",
+      "sev": "medium",
+      "title": "Links have descriptive names",
+      "why": "Agents choose links by their text; empty or icon-only anchors are dead ends in the link graph.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U5",
+      "cat": "usability",
+      "sev": "medium",
+      "title": "Buttons have accessible names",
+      "why": "Icon-only buttons (hamburger, close, \"→\") cannot be reasoned about by text-only agents.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U6",
+      "cat": "usability",
+      "sev": "medium",
+      "title": "Form fields are labelled",
+      "why": "Labelled fields are the only way an agent could ever (legitimately) assist with a form; placeholders alone are ambiguous.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U7",
+      "cat": "usability",
+      "sev": "high",
+      "title": "Navigation uses real links",
+      "why": "href=\"#\" and click-handler-only \"links\" cannot be followed by a fetcher; only real anchors work for every agent class.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U8",
+      "cat": "usability",
+      "sev": "high",
+      "title": "Agent task: locate signup",
+      "why": "An agent helping a new customer must find the way to create an account. The task is followed with links only — never submitted.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "U9",
+      "cat": "usability",
+      "sev": "medium",
+      "title": "Agent task: locate docs or help",
+      "why": "Agents answer \"how do I…\" questions from your docs. If they cannot find them, they answer from guesses.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "P1",
+      "cat": "payments",
+      "sev": "critical",
+      "title": "Agent task: find pricing",
+      "why": "The most commonly delegated commercial question. If a link-following agent cannot reach pricing, it cannot answer it.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "P2",
+      "cat": "payments",
+      "sev": "high",
+      "title": "Agent task: extract plan details",
+      "why": "Price, currency period and plan names as plain text — half the value of a pricing page for an agent.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "P3",
+      "cat": "payments",
+      "sev": "high",
+      "title": "Prices present in the initial HTML",
+      "why": "Plan prices must exist in the server HTML; JavaScript-injected prices are missed by every fetch-only agent.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "P4",
+      "cat": "payments",
+      "sev": "medium",
+      "title": "Offers described with structured data",
+      "why": "schema.org Product/Offer markup states price, currency and availability without layout parsing.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "P5",
+      "cat": "payments",
+      "sev": "critical",
+      "title": "Agent task: reach the checkout interface",
+      "why": "Following plan CTAs to checkout is the end of the purchase journey. The auditor stops as soon as a payment interface loads and enters nothing.",
+      "requiresBrowser": false
+    },
+    {
+      "id": "P6",
+      "cat": "payments",
+      "sev": "high",
+      "title": "Plan CTAs are real links",
+      "why": "Script-only buy buttons (\"Upgrade\" with an onclick handler) cannot be followed by fetchers — and never appear in the link graph.",
+      "requiresBrowser": false
+    }
+  ],
+  "checkCount": 33,
+  "categories": [
+    {
+      "id": "discovery",
+      "name": "Discovery",
+      "q": "Can agents find your important pages, docs, products and pricing?"
+    },
+    {
+      "id": "access",
+      "name": "Access",
+      "q": "Can agents actually retrieve the information?"
+    },
+    {
+      "id": "usability",
+      "name": "Usability",
+      "q": "Can agents understand pages and navigate key workflows?"
+    },
+    {
+      "id": "payments",
+      "name": "Payments",
+      "q": "Can agents find pricing, understand plans and reach checkout?"
+    }
+  ],
+  "statuses": {
+    "pass": "Pass",
+    "partial": "Partial",
+    "fail": "Fail",
+    "blocked": "Blocked",
+    "inconclusive": "Inconclusive",
+    "error": "Error",
+    "n/a": "N/A"
+  },
+  "statusCredit": {
+    "pass": 1,
+    "partial": 0.5
+  },
+  "weights": {
+    "critical": 5,
+    "high": 3,
+    "medium": 2,
+    "low": 1
+  },
+  "scoring": {
+    "credit": "pass = 1 · partial = 0.5 · fail = 0",
+    "category": "Σ(weight × credit) ÷ Σ(weight of evaluated checks)",
+    "overall": "mean of category scores with ≥1 evaluated check",
+    "coverage": "tested weight ÷ applicable weight; blocked/inconclusive/error count as applicable, n/a excluded"
+  },
+  "limits": {
+    "auditMs": 150000,
+    "redirects": 5,
+    "maxResponseBytes": 3000000,
+    "maxDecodeBytes": 6000000,
+    "fetchTimeoutMs": 15000,
+    "crawlMaxPages": 14,
+    "crawlMaxLinksPerPage": 250,
+    "crawlDelayMs": 300,
+    "pageLoadTimeoutMs": 25000,
+    "taskTimeoutMs": 18000,
+    "concurrentAudits": 3,
+    "perOriginCooldownMs": 20000
+  }
+}

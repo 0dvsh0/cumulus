@@ -1,0 +1,311 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Cumulus API",
+    "version": "1.0.0",
+    "description": "Audit how easily AI agents can discover, access, understand and buy from a website. Returns the same results as the dashboard. Optional bearer auth via CUMULUS_API_KEY."
+  },
+  "servers": [
+    {
+      "url": "https://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/v1/audits": {
+      "post": {
+        "summary": "Start an audit of a URL (never submits forms or payments)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "url"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "examples": [
+                      "https://example.com"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Audit started"
+          },
+          "400": {
+            "description": "Invalid or refused URL"
+          },
+          "429": {
+            "description": "Origin cooldown"
+          },
+          "503": {
+            "description": "Capacity exhausted"
+          }
+        }
+      },
+      "get": {
+        "summary": "List recent audits",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 15
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Recent audits"
+          }
+        }
+      }
+    },
+    "/api/v1/audits/{id}": {
+      "get": {
+        "summary": "Fetch an audit record",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "logs",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit record (with report when complete)"
+          },
+          "404": {
+            "description": "Unknown id"
+          },
+          "425": {
+            "description": "Still running"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Request cancellation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cancellation requested"
+          },
+          "404": {
+            "description": "Unknown id"
+          }
+        }
+      }
+    },
+    "/api/v1/audits/{id}/events": {
+      "get": {
+        "summary": "Server-sent events with audit progress and terminal report",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "text/event-stream"
+          }
+        }
+      }
+    },
+    "/api/v1/audits/{id}/findings": {
+      "get": {
+        "summary": "Findings (fail/partial) with evidence and remediation detail",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "detail",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "1"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Findings"
+          },
+          "404": {
+            "description": "Unknown id"
+          },
+          "409": {
+            "description": "No report"
+          },
+          "425": {
+            "description": "Still running"
+          }
+        }
+      }
+    },
+    "/api/v1/audits/{id}/fix-kit": {
+      "get": {
+        "summary": "Download the fix kit zip",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "application/zip"
+          },
+          "404": {
+            "description": "Unknown id"
+          },
+          "409": {
+            "description": "No report"
+          },
+          "425": {
+            "description": "Still running"
+          }
+        }
+      }
+    },
+    "/api/v1/history": {
+      "get": {
+        "summary": "Per-host finished audits (for score deltas)",
+        "parameters": [
+          {
+            "name": "host",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "History",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/meta": {
+      "get": {
+        "summary": "Check registry + scoring model",
+        "responses": {
+          "200": {
+            "description": "33 checks, statuses, weights, limits, endpoints"
+          }
+        }
+      }
+    },
+    "/mcp": {
+      "post": {
+        "summary": "Model Context Protocol HTTP endpoint (JSON-RPC 2.0, streamable HTTP)",
+        "responses": {
+          "200": {
+            "description": "JSON-RPC response"
+          },
+          "202": {
+            "description": "Notification accepted"
+          },
+          "400": {
+            "description": "Bad JSON-RPC"
+          }
+        }
+      }
+    }
+  },
+  "x-schemas": {
+    "audit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "host": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "running",
+            "complete",
+            "failed",
+            "cancelled"
+          ]
+        },
+        "pct": {
+          "type": "integer"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "report": {
+          "type": "object",
+          "description": "Present when complete: score, categories, findings, coverage, journey, stats, agents"
+        }
+      }
+    }
+  },
+  "x-notes": [
+    "Legacy aliases without the /v1 segment are kept for convenience: POST /api/audits etc.",
+    "Privately-routed, private-range and credential-bearing URLs are refused; robots.txt is respected (blocked checks are never failures)."
+  ]
+}
