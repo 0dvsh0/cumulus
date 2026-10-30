@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cumulus — Audit report</title>
+  <meta name="description" content="Evidence-backed AI-readiness audit: score, category breakdown, findings with evidence, fix kit">
+  <meta name="theme-color" content="#000000">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Cpath d='M7 24h18a4 4 0 0 0 .3-8 6 6 0 0 0-11.2-2A4.6 4.6 0 0 0 7.2 17.5 3.3 3.3 0 0 0 7 24Z' fill='%235f6068' stroke='%23a4a6b6' stroke-width='1.4'/%3E%3Ccircle cx='24' cy='7' r='1.6' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; } #progress-wrap { display: none; }</style></noscript>
+</head>
+<body data-page="report">
+  <div class="sky" aria-hidden="true"><canvas id="sky"></canvas></div>
+
+  <div class="page">
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="index.html" aria-label="Cumulus home"><span class="brand-mark"></span>Cumulus</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="demo.html">Demo Video</a>
+          <a href="docs.html">Docs</a>
+          <a href="index.html#scoring">Scoring</a>
+          <a class="btn small" href="index.html" id="nav-rerun">Run an audit <span aria-hidden="true">→</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= PROGRESS (running) ================= -->
+    <section class="section tight" id="progress-wrap">
+      <div class="wrap" style="max-width: 980px">
+        <div class="progress-card">
+          <div class="progress-head">
+            <span class="target mono" id="p-target">starting audit…</span>
+            <span class="elapsed" id="p-elapsed">0s</span>
+          </div>
+          <div class="progress-bar"><span id="p-bar" style="width:2%"></span></div>
+          <div class="progress-body">
+            <ol class="steps" id="p-steps"></ol>
+            <div class="log" id="p-log" aria-live="polite"></div>
+          </div>
+          <div class="progress-foot">
+            <span id="p-note">Never submits forms or payments · respects robots.txt</span>
+            <span class="mono dim" id="p-id"></span>
+          </div>
+        </div>
+        <p style="margin-top:18px;color:var(--text-3);font-size:14px;text-align:center">This page updates live. An audit typically takes 30–90&nbsp;seconds.</p>
+      </div>
+    </section>
+
+    <!-- ================= FAILURE / ERROR STATE ================= -->
+    <section class="section tight" id="error-wrap" hidden>
+      <div class="wrap" style="max-width: 720px">
+        <div class="panel">
+          <div class="panel-h"><h2>The audit did not finish</h2></div>
+          <div class="panel-b">
+            <p id="error-msg" style="color:var(--text-2)"></p>
+            <p class="dim" style="font-size:13px;margin-top:14px">Common causes: the site blocks datacentre traffic, DNS does not resolve, or the robots.txt/HTTP behaviour made testing impossible. Everything the auditor observed is in the log above (or in the record endpoint).</p>
+            <div style="display:flex;gap:10px;margin-top:20px">
+              <a class="btn small" href="/" id="error-home">Try another site</a>
+              <a class="btn small ghost" id="error-retry" href="#">Retry this audit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DASHBOARD (complete) ================= -->
+    <section class="report-top" id="report-top" hidden>
+      <div class="wrap">
+        <div class="crumbs">
+          <a href="/">Cumulus</a><span aria-hidden="true">/</span>
+          <span class="mono" id="crumbs-host"></span>
+          <span aria-hidden="true">/</span>
+          <span class="dim mono" id="crumbs-id"></span>
+        </div>
+
+        <div class="score-hero">
+          <div class="score-orb" id="orb">
+            <div class="num"><b id="orb-num">—</b><small>/ 100 · <span id="orb-cov">coverage</span></small><span class="grade" id="orb-grade"></span></div>
+          </div>
+          <div class="score-meta">
+            <h1><a id="site-host" href="#" target="_blank" rel="noopener"></a></h1>
+            <div class="sub" id="meta-sub"></div>
+            <p class="verdict" id="verdict"></p>
+            <div class="actions">
+              <a class="btn" id="fixkit-btn" href="#" download>Fix kit <span aria-hidden="true">↓</span></a>
+              <a class="btn ghost" id="json-btn" href="#" target="_blank" rel="noopener">report JSON</a>
+              <a class="btn ghost" id="rerun-btn" href="index.html">Re-run</a>
+              <a class="btn ghost" href="docs.html">Methodology</a>
+            </div>
+            <div class="coverage">
+              <div class="lbl"><span>Coverage</span><span id="cov-label"></span></div>
+              <div class="bar" id="cov-bar" aria-hidden="true"></div>
+              <div class="keys" id="cov-keys"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap" id="cats-wrap" hidden>
+      <div class="cats" id="cats"></div>
+      <p class="dim" id="cats-note" style="margin-top:14px;font-size:12.5px"></p>
+    </div>
+
+    <!-- ================= MAIN GRID ================= -->
+    <div class="report-grid wrap" id="dashboard" hidden>
+      <div>
+        <div class="panel">
+          <div class="panel-h">
+            <h2>Findings</h2>
+            <div class="filters" id="finding-filters"></div>
+          </div>
+          <div class="panel-b flush" id="findings-list"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-h">
+            <h2>Checks</h2>
+            <div class="filters" id="check-filters"></div>
+          </div>
+          <div class="panel-b flush" id="checks-list"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-h"><h2>Agent journey</h2><span class="dim" style="font-size:12px">link-following · nothing submitted</span></div>
+          <div class="panel-b"><ol class="journey" id="journey"></ol></div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="panel">
+          <div class="panel-h"><h2>Fix kit</h2></div>
+          <div class="panel-b">
+            <p class="note" style="margin-bottom:14px">A zip your team can ship: one Markdown file per finding (problem · evidence · impact · fix · acceptance criteria · verification command), a README with the fix order, and <span class="mono">report.json</span>.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn small" id="fixkit-side" href="#" download>Download zip <span aria-hidden="true">↓</span></a>
+              <a class="btn small ghost" id="findings-api" href="#" target="_blank" rel="noopener">findings API</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-h"><h2>Agent access</h2><span class="dim" style="font-size:11px">robots.txt verdicts</span></div>
+          <div class="panel-b" id="agents"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-h"><h2>Audit facts</h2></div>
+          <dl class="kv panel-b" id="facts"></dl>
+        </div>
+
+        <div class="panel">
+          <div class="panel-h"><h2>History</h2><span class="dim" style="font-size:12px" id="hist-note">same-host audits</span></div>
+          <div class="hist" id="hist"></div>
+          <div class="spark" id="spark"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-h"><h2>Pages fetched</h2><span class="dim" style="font-size:12px" id="pages-note"></span></div>
+          <div class="panel-b flush"><table class="pages-table" id="pages"></table></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- <footer class="footer">
+      <div class="wrap">
+        <div>
+          <a class="brand" href="/"><span class="brand-mark"></span>Cumulus</a>
+          <p class="fine">Results reflect what the auditor observed at audit time. A passing task shows a link-following agent could complete it — not that every AI agent will.</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="/docs">Methodology</a>
+          <a href="/api/v1/meta">API meta</a>
+          <a href="/#how">How it works</a>
+        </nav>
+      </div>
+    </footer> -->
+  </div>
+
+  <script type="module" src="js/report.js"></script>
+</body>
+</html>
