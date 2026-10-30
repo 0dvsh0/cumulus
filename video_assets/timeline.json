@@ -1,0 +1,75 @@
+{
+  "totalDuration": 103.77306199999998,
+  "scenes": [
+    {
+      "id": "scene1_intro",
+      "text": "Welcome to Cumulus. Millions of AI agents—from ChatGPT and Claude to shopping bots—browse the web daily to answer questions and purchase products. Yet most websites fail because of client-side hydration, missing schema, blocked robots directives, or broken checkout links. We built Cumulus to audit how easily AI agents can discover, access, understand, and transact on your website.",
+      "caption": "Cumulus · AI Website Readiness Auditor\nWhy we made it: Websites fail for autonomous AI agents",
+      "file": "D:\\coding\\hackathon\\culumus\\video_assets\\scene1_intro.wav",
+      "start": 0.5,
+      "end": 22.425624,
+      "duration": 21.925624,
+      "pauseAfter": 0.8
+    },
+    {
+      "id": "scene2_submission",
+      "text": "Getting started requires zero signup. Enter any public URL and click Audit. Cumulus launches a multi-stage evaluation: parsing robots directives for major AI crawlers, probing sitemaps, extracting raw HTML, and launching a headless browser to execute real agent journeys.",
+      "caption": "Live Walkthrough: URL Submission & Real-time Evaluation\nMulti-stage crawl with Server-Sent Events (SSE)",
+      "file": "D:\\coding\\hackathon\\culumus\\video_assets\\scene2_submission.wav",
+      "start": 23.225624,
+      "end": 39.192336,
+      "duration": 15.966712,
+      "pauseAfter": 0.8
+    },
+    {
+      "id": "scene3_browser_tasks",
+      "text": "Unlike basic scanners, Cumulus tests real user workflows in a sandboxed browser: finding pricing, extracting plans, following checkout calls-to-action without submitting forms, and verifying that navigation landmarks are truly machine-followable.",
+      "caption": "Deep Browser Agent Testing\nEvaluating pricing, plan extraction, checkout links, and navigation",
+      "file": "D:\\coding\\hackathon\\culumus\\video_assets\\scene3_browser_tasks.wav",
+      "start": 39.992335999999995,
+      "end": 53.149207,
+      "duration": 13.156871,
+      "pauseAfter": 0.8
+    },
+    {
+      "id": "scene4_results_scoring",
+      "text": "When complete, Cumulus generates a transparent report. The overall readiness score reflects verified evidence across Discovery, Access, Usability, and Payments. Crucially, audit coverage is always measured—untested or inconclusive checks are never treated as failures.",
+      "caption": "Transparent Results Dashboard & Scoring\nDiscovery, Access, Usability & Payments with verified coverage",
+      "file": "D:\\coding\\hackathon\\culumus\\video_assets\\scene4_results_scoring.wav",
+      "start": 53.949206999999994,
+      "end": 68.36580599999999,
+      "duration": 14.416599,
+      "pauseAfter": 0.8
+    },
+    {
+      "id": "scene5_findings_fixkit",
+      "text": "Every finding comes backed by real evidence, business impact, and specific acceptance criteria. Engineers can download the complete Fix Kit: a packaged ZIP archive with individual Markdown guides and verification commands ready for sprint backlog.",
+      "caption": "Evidence-Backed Findings & Downloadable Fix Kit\nPackaged Markdown remediation guides for engineering teams",
+      "file": "D:\\coding\\hackathon\\culumus\\video_assets\\scene5_findings_fixkit.wav",
+      "start": 69.16580599999999,
+      "end": 81.61768799999999,
+      "duration": 12.451882,
+      "pauseAfter": 0.8
+    },
+    {
+      "id": "scene6_docs_mcp",
+      "text": "Cumulus is built for developers and autonomous agents alike. Our documentation details all thirty-three checks in the suite. With our REST API and native Model Context Protocol interface, AI agents can audit websites and retrieve remediation instructions programmatically.",
+      "caption": "Complete Documentation, REST API & Model Context Protocol (MCP)\nEquipping autonomous agents with audit & remediation tools",
+      "file": "D:\\coding\\hackathon\\culumus\\video_assets\\scene6_docs_mcp.wav",
+      "start": 82.41768799999998,
+      "end": 96.60444499999998,
+      "duration": 14.186757,
+      "pauseAfter": 0.8
+    },
+    {
+      "id": "scene7_outro",
+      "text": "Test your site today with Cumulus, and make your business ready for the agentic web.",
+      "caption": "Cumulus · Ready for the Agentic Web",
+      "file": "D:\\coding\\hackathon\\culumus\\video_assets\\scene7_outro.wav",
+      "start": 97.40444499999998,
+      "end": 101.77306199999998,
+      "duration": 4.368617,
+      "pauseAfter": 2
+    }
+  ]
+}

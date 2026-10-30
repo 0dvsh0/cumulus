@@ -1,0 +1,34 @@
+1
+00:00:00,500 --> 00:00:22,725
+Cumulus · AI Website Readiness Auditor
+Why we made it: Websites fail for autonomous AI agents
+
+2
+00:00:23,225 --> 00:00:39,492
+Live Walkthrough: URL Submission & Real-time Evaluation
+Multi-stage crawl with Server-Sent Events (SSE)
+
+3
+00:00:39,992 --> 00:00:53,449
+Deep Browser Agent Testing
+Evaluating pricing, plan extraction, checkout links, and navigation
+
+4
+00:00:53,949 --> 00:01:08,665
+Transparent Results Dashboard & Scoring
+Discovery, Access, Usability & Payments with verified coverage
+
+5
+00:01:09,165 --> 00:01:21,917
+Evidence-Backed Findings & Downloadable Fix Kit
+Packaged Markdown remediation guides for engineering teams
+
+6
+00:01:22,417 --> 00:01:36,904
+Complete Documentation, REST API & Model Context Protocol (MCP)
+Equipping autonomous agents with audit & remediation tools
+
+7
+00:01:37,404 --> 00:01:42,073
+Cumulus · Ready for the Agentic Web
+
