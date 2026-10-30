@@ -823,6 +823,13 @@ home → <b>"Pricing"</b> → /pricing
       if (submitBtn) submitBtn.disabled = true;
 
       let started = false;
+      if (location.hostname.endsWith('github.io') || location.protocol === 'file:') {
+        started = true;
+        msg.className = 'form-msg';
+        msg.innerHTML = `Audit starting for <code>${esc(new URL(r.url).hostname)}</code> — opening live audit…`;
+        location.href = `report.html?url=${encodeURIComponent(r.url)}&live=1`;
+        return;
+      }
       try {
         const res = await fetch('/api/v1/audits', {
           method: 'POST',

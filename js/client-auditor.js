@@ -30,10 +30,19 @@ function generateAuditId(host) {
   return `a${hex}${sub}`;
 }
 
+const storage = {
+  get(key) {
+    try { return typeof sessionStorage !== 'undefined' ? sessionStorage.getItem(key) : null; } catch { return null; }
+  },
+  set(key, val) {
+    try { if (typeof sessionStorage !== 'undefined') sessionStorage.setItem(key, val); } catch {}
+  },
+};
+
 export async function loadAudit(idOrHost, urlStr = '') {
-  // 1. Check sessionStorage
+  // 1. Check storage
   if (idOrHost) {
-    const cached = sessionStorage.getItem(`cumulus_audit_${idOrHost}`);
+    const cached = storage.get(`cumulus_audit_${idOrHost}`);
     if (cached) {
       try { return JSON.parse(cached); } catch {}
     }
@@ -60,7 +69,7 @@ export async function loadAudit(idOrHost, urlStr = '') {
       const res = await fetch(KNOWN_HOSTS[cleanHost]);
       if (res.ok) {
         const audit = await res.json();
-        sessionStorage.setItem(`cumulus_audit_${audit.id}`, JSON.stringify(audit));
+        storage.set(`cumulus_audit_${audit.id}`, JSON.stringify(audit));
         return audit;
       }
     } catch {}
@@ -130,7 +139,7 @@ export function synthesizeAudit(template, targetHost, targetUrl) {
     }
   }
 
-  sessionStorage.setItem(`cumulus_audit_${id}`, JSON.stringify(cloned));
+  storage.set(`cumulus_audit_${id}`, JSON.stringify(cloned));
   return cloned;
 }
 
@@ -202,7 +211,7 @@ export async function runClientAudit(targetUrl, onProgress) {
   const audit = await loadAudit(host, u.href);
   if (audit) {
     audit.id = id;
-    sessionStorage.setItem(`cumulus_audit_${id}`, JSON.stringify(audit));
+    storage.set(`cumulus_audit_${id}`, JSON.stringify(audit));
   }
 
   if (onProgress) {

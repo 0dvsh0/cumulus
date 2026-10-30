@@ -44,6 +44,7 @@ let rec = null;
 let meta = null;
 let report = null;
 let startedNow = Date.now();
+let ticker = null;
 
 if (id || queryUrl) fetchOnce();
 
@@ -129,17 +130,20 @@ function showProgress() {
   $('#report-top').hidden = true;
   $('#cats-wrap').hidden = true;
   $('#dashboard').hidden = true;
-  document.title = `Cumulus — auditing ${new URL(rec.url).hostname}`;
+  try {
+    document.title = `Cumulus — auditing ${new URL(rec.url).hostname}`;
+  } catch {}
 
   $('#p-target').textContent = rec.url;
-  $('#p-id').textContent = rec.id;
+  $('#p-id').textContent = rec.id || 'running';
   renderSteps(rec.stage, rec.pct);
   paintLogs(rec.logs || []);
   startTicker();
-  openStream();
+  if (!isLive && !queryUrl && AUDIT_ID_RX.test(id) && !location.hostname.endsWith('github.io')) {
+    openStream();
+  }
 }
 
-let ticker = null;
 function startTicker() {
   if (ticker) clearInterval(ticker);
   const t0 = rec.startedAt || Date.now();
@@ -171,7 +175,9 @@ function paintLogs(logs) {
 function pushLogTo(log) {
   if (!log) return;
   const box = $('#p-log');
-  box.insertAdjacentHTML('beforeend', `<div><span class="t">${esc(log.t)}</span>${esc(log.msg)}</div>`);
+  const t = typeof log === 'string' ? new Date().toLocaleTimeString() : (log.t || new Date().toLocaleTimeString());
+  const msg = typeof log === 'string' ? log : (log.msg || '');
+  box.insertAdjacentHTML('beforeend', `<div><span class="t">${esc(t)}</span>${esc(msg)}</div>`);
   box.scrollTop = box.scrollHeight;
 }
 
