@@ -112,6 +112,9 @@ export function synthesizeAudit(template, targetHost, targetUrl) {
   // Customize report object
   if (cloned.report) {
     cloned.report.meta.target = url;
+    cloned.report.meta.url = url;
+    cloned.report.meta.origin = origin;
+    cloned.report.meta.host = targetHost;
     cloned.report.meta.checkedAt = cloned.createdAt;
     cloned.report.score.overall = overall;
     cloned.report.score.grade = grade;
